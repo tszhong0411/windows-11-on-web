@@ -4,8 +4,8 @@ This project aims to provide a web-based version of Windows 11, allowing users t
 
 ## Working
 
-- [ ] Taskbar:
-  - [ ] Resorting apps
+- Taskbar:
+  - [x] Resorting apps
   - [ ] Quick settings
   - [ ] Calendar
   - [ ] Widgets
