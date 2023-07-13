@@ -19,7 +19,7 @@ import {
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { cx } from '@tszhong0411/utils'
-import { format } from 'date-fns'
+import dayjs from 'dayjs'
 import React from 'react'
 import { useLocalStorage } from 'react-use'
 
@@ -300,12 +300,12 @@ const SystemTray = () => {
             className='rounded py-1 pl-2 pr-2 text-right text-xs hover:bg-white/90'
             data-id='calendar'
           >
-            <div>{format(time, 'h:mm a')}</div>
-            <div>{format(time, 'M/d/yyyy')}</div>
+            <div>{dayjs(time).format('h:mm A')}</div>
+            <div>{dayjs(time).format('M/D/YYYY')}</div>
           </button>
         </TooltipTrigger>
         <TooltipContent sideOffset={18}>
-          <span>{format(time, 'EEEE, MMMM d, yyyy')}</span>
+          <span>{dayjs(time).format('dddd, MMMM D, YYYY')}</span>
         </TooltipContent>
       </Tooltip>
 
