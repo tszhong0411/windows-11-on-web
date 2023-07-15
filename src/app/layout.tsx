@@ -1,7 +1,6 @@
 import { cx } from '@tszhong0411/utils'
 import type { Metadata } from 'next'
 import localfont from 'next/font/local'
-import React from 'react'
 import '@/styles/globals.css'
 
 import Providers from './providers'
