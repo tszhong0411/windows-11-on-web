@@ -9,6 +9,7 @@ type SettingsStates = {
   nightLight: boolean
   nearbySharing: boolean
   muted: boolean
+  calendarExpanded: boolean
 }
 
 const initialStates: SettingsStates = {
@@ -19,6 +20,7 @@ const initialStates: SettingsStates = {
   nightLight: false,
   nearbySharing: false,
   muted: false,
+  calendarExpanded: true,
 }
 
 type SettingsActions = {
@@ -29,6 +31,7 @@ type SettingsActions = {
   setNightLight: (nightLight: boolean) => void
   setNearbySharing: (nearbySharing: boolean) => void
   setMuted: (muted: boolean) => void
+  setCalendarExpanded: (calendarExpanded: boolean) => void
 }
 
 export const useSettings = create<SettingsStates & SettingsActions>()(
@@ -45,6 +48,7 @@ export const useSettings = create<SettingsStates & SettingsActions>()(
       },
       setNearbySharing: (nearbySharing) => set({ nearbySharing }),
       setMuted: (muted) => set({ muted }),
+      setCalendarExpanded: (calendarExpanded) => set({ calendarExpanded }),
     }),
     {
       name: 'settings',
