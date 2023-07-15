@@ -2,17 +2,21 @@
 
 This project aims to provide a web-based version of Windows 11, allowing users to experience Windows 11 directly from their web browser.
 
-## Working
+## Things need to be fixed
 
-- Taskbar:
-  - [x] Resorting apps
-  - [ ] Quick settings
-  - [ ] Calendar
-  - [ ] Widgets
+- Quick settings
 
-## Not working
+  - Edit quick settings is not functional
+  - Nearby sharing is not functional
 
-- Currently, there are no features that cannot implement. Stay tuned for future updates as we continue to enhance the web version of Windows 11.
+- Calendar
+
+  - Scroll animation
+  - Years calculate in decade view is not accurate
+  - Focus is not functional
+
+- Taskbar
+  - Show desktop is not functional
 
 ## Resources
 
