@@ -73,7 +73,7 @@ const SliderThumb = React.forwardRef<
         className={cx(
           'absolute left-1/2 top-1/2 block h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#005fb8] transition-all duration-100',
           'group-hover:h-[15px] group-hover:w-[15px]',
-          'group-active:h-[10px] group-active:w-[10px]'
+          'group-active:h-2.5 group-active:w-2.5'
         )}
       ></span>
     </SliderPrimitive.Thumb>

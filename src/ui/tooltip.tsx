@@ -17,7 +17,7 @@ const TooltipContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cx(
-        'relative rounded bg-[#f9f9f9] px-[10px] py-[6px] text-center text-xs shadow-[0_4px_8px_0_rgba(0,0,0,0.14)]',
+        'relative rounded bg-[#f9f9f9] px-2.5 py-1.5 text-center text-xs shadow-[0_4px_8px_0_rgba(0,0,0,0.14)]',
         'before:absolute before:inset-0 before:-z-10 before:-m-px before:rounded-[inherit] before:bg-gradient',
         className
       )}

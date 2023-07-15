@@ -1,3 +1,5 @@
+'use client'
+
 import { cx } from '@tszhong0411/utils'
 import Image from 'next/image'
 import React from 'react'
@@ -15,7 +17,7 @@ const App = React.forwardRef<HTMLButtonElement, AppProps>((props, ref) => {
   return (
     <button
       className={cx(
-        'group relative flex h-10 w-10 items-center justify-center rounded border border-transparent bg-clip-padding',
+        'group relative flex h-10 w-10 cursor-default items-center justify-center rounded border border-transparent bg-clip-padding',
         !isDragging && 'hover:bg-white/90 hover:before:bg-gradient',
         isDragging && 'z-10',
         'before:absolute before:inset-0 before:-z-10 before:-m-px before:rounded-[inherit] before:opacity-30'
