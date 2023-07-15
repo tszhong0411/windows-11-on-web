@@ -6,7 +6,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "~/*": ["./public/*"],
+      "~/*": ["./public/*"]
     },
     "plugins": [
       {
@@ -23,6 +23,6 @@
     "**/*.ts",
     "**/*.js",
     "**/*.cjs",
-    ".next/types/**/*.ts",
+    ".next/types/**/*.ts"
   ]
 }

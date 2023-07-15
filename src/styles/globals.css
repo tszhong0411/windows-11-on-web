@@ -7,7 +7,7 @@
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -17,6 +17,6 @@ body::before {
   transition: all 2s ease;
 }
 
-body[data-night-light=true]::before {
+body[data-night-light='true']::before {
   opacity: 0.8;
 }
