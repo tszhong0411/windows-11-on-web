@@ -10,10 +10,10 @@ const Toggle = (props: ToggleProps) => {
   const { label, active, icon, ...rest } = props
 
   return (
-    <div className='group flex h-[72px] w-[98px] flex-col justify-between'>
+    <div className='group flex h-[72px] flex-col justify-between'>
       <div
         className={cx(
-          'relative flex h-[48px] w-[98px] items-center justify-center rounded',
+          'relative flex h-[46px] w-[94px] items-center justify-center rounded',
           'before:absolute before:inset-0 before:-z-10 before:-m-px before:rounded-[inherit] before:bg-gradient',
           active
             ? 'bg-[#0067c0] text-white hover:bg-[#003e92] group-active:bg-[rgba(0,95,184,0.8)] group-active:text-white/70'
