@@ -16,92 +16,78 @@ type Position = {
 
 const Desktop = (props: WallpaperProps) => {
   const { children } = props
-  const ref = React.useRef<HTMLDivElement>(null)
-  const [startPosition, setStartPosition] = React.useState<Position | null>(
-    null
-  )
-  const [endPosition, setEndPosition] = React.useState<Position | null>(null)
+  const [position, setPosition] = React.useState<{
+    start: Position | null
+    end: Position | null
+  }>({
+    start: null,
+    end: null,
+  })
   const [isSelecting, setIsSelecting] = React.useState(false)
 
-  React.useEffect(() => {
-    const refValue = ref.current
+  const mouseDownHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.button === 2 || e.button === 1) return
 
-    const mouseDownHandler = (e: MouseEvent) => {
-      if (refValue && (e.target as HTMLElement).dataset.id === 'desktop') {
-        setIsSelecting(true)
-        setStartPosition({
-          x: e.clientX,
-          y: e.clientY,
-        })
-      }
-    }
+    setIsSelecting(true)
+    setPosition({
+      start: {
+        x: e.clientX,
+        y: e.clientY,
+      },
+      end: null,
+    })
+  }
 
-    const mouseMoveHandler = (e: MouseEvent) => {
-      if (isSelecting) {
-        setEndPosition({
-          x: e.clientX,
-          y: e.clientY,
-        })
-      }
-    }
+  const mouseMoveHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isSelecting) return
 
-    const mouseUpHandler = () => {
-      if (isSelecting) {
-        setIsSelecting(false)
-        setStartPosition(null)
-        setEndPosition(null)
-      }
-    }
+    setPosition((prev) => ({
+      ...prev,
+      end: {
+        x: e.clientX,
+        y: e.clientY,
+      },
+    }))
+  }
 
-    document.addEventListener('mousemove', mouseMoveHandler)
-    document.addEventListener('mouseup', mouseUpHandler)
+  const mouseUpHandler = () => {
+    if (!isSelecting) return
 
-    if (refValue) {
-      refValue.addEventListener('mousedown', mouseDownHandler)
-    }
-
-    return () => {
-      document.removeEventListener('mousemove', mouseMoveHandler)
-      document.removeEventListener('mouseup', mouseUpHandler)
-
-      if (refValue) {
-        refValue.removeEventListener('mousedown', mouseDownHandler)
-      }
-    }
-  }, [isSelecting])
+    setIsSelecting(false)
+    setPosition({
+      start: null,
+      end: null,
+    })
+  }
 
   return (
     <>
       <ContextMenu>
         <div
-          ref={ref}
+          role='button'
+          tabIndex={0}
           className={cx(
-            'min-h-screen min-w-[100vw] bg-cover bg-center bg-no-repeat',
+            'min-h-screen min-w-[100vw] cursor-default bg-cover bg-center bg-no-repeat',
             isSelecting && 'overflow-hidden'
           )}
           style={{
             backgroundImage: 'url(/static/images/wallpaper.jpg)',
           }}
-          data-id='desktop'
+          onMouseDown={mouseDownHandler}
+          onMouseMove={mouseMoveHandler}
+          onMouseUp={mouseUpHandler}
         >
           {/* Selection */}
-          {isSelecting && startPosition && endPosition && (
-            <span
+          {isSelecting && position.start && position.end && (
+            <div
               style={{
-                width: `${Math.abs(endPosition.x - startPosition.x)}px`,
-                height: `${Math.abs(endPosition.y - startPosition.y)}px`,
-                transform: `translate(${
-                  endPosition.x < startPosition.x
-                    ? endPosition.x
-                    : startPosition.x
-                }px, ${
-                  endPosition.y < startPosition.y
-                    ? endPosition.y
-                    : startPosition.y
-                }px)`,
+                width: Math.abs(position.end.x - position.start.x),
+                height: Math.abs(position.end.y - position.start.y),
+                left: Math.min(position.start.x, position.end.x),
+                top: Math.min(position.start.y, position.end.y),
               }}
-              className='block select-none border border-[#006ec6] bg-blue-500/30'
-            ></span>
+              className='absolute select-none border border-[#006ec6] bg-blue-500/30'
+            ></div>
           )}
         </div>
       </ContextMenu>
