@@ -47,18 +47,18 @@ const QuickSettings = () => {
         <motion.div
           ref={ref}
           initial={{
-            transform: 'translateY(100%)',
+            transform: 'translateY(calc(100% + 48px))',
           }}
           animate={{
             transform: 'translateY(0%)',
           }}
           exit={{
-            transform: 'translateY(100%)',
+            transform: 'translateY(calc(100% + 48px))',
           }}
           transition={{
             duration: 0.1,
           }}
-          className='fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 flex h-[332px] w-[360px] select-none flex-col justify-between rounded-lg border border-[rgba(117,117,117,0.4)] bg-[#eaeaea]'
+          className='acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 flex h-[332px] w-[360px] select-none flex-col justify-between rounded-lg border border-[rgba(117,117,117,0.4)] shadow-shell'
         >
           <Toggles />
           <Volume />

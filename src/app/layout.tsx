@@ -28,7 +28,7 @@ const RootLayout = (props: RootLayoutProps) => {
       lang='en-US'
       className={cx(segoeUIVF.variable, 'scroll-smooth antialiased')}
     >
-      <body className='font-default'>
+      <body className='overflow-hidden font-default'>
         <Providers>{children}</Providers>
       </body>
     </html>

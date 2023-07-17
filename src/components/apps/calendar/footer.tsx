@@ -24,7 +24,7 @@ const Footer = () => {
   }
 
   return (
-    <div className='absolute bottom-0 left-0 right-0 z-10 flex h-[49px] w-full items-center justify-between border-t border-[rgba(0,0,0,0.0803)] bg-[#f2f2f2] px-4'>
+    <div className='absolute bottom-0 left-0 right-0 z-10 flex h-[49px] w-full items-center justify-between border-t border-[rgba(0,0,0,0.0803)] px-4'>
       <div className='flex w-[130px] justify-between gap-3'>
         <Button
           onClick={subtractTimeHandler}

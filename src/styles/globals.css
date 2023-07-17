@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .acrylic {
+    @apply bg-[rgba(243,243,243,0.9)] backdrop-blur-[60px];
+  }
+}
+
 :root {
   --taskbar-height: 48px;
 }

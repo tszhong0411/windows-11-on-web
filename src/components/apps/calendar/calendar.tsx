@@ -73,27 +73,33 @@ const Calendar = () => {
         <motion.div
           ref={ref}
           initial={{
-            transform: 'translateX(100%)',
+            transform: 'translateX(calc(100% + 48px))',
           }}
           animate={{
             transform: 'translateX(0%)',
           }}
           exit={{
-            transform: 'translateX(100%)',
+            transform: 'translateX(calc(100% + 48px))',
           }}
           transition={{
             duration: 0.1,
           }}
           className={cx(
-            'fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 h-[455px] w-[334px] select-none overflow-hidden rounded-lg border border-[rgba(117,117,117,0.4)] bg-[#f2f2f2] transition-[max-height] duration-[250ms] ease-[cubic-bezier(0.62,0,0.32,1)]',
-            calendarExpanded ? 'max-h-[455px]' : 'max-h-[100px]'
+            'acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 w-[334px] select-none rounded-lg border border-[rgba(117,117,117,0.4)] shadow-flyout'
           )}
         >
           <Header />
-          <Navigation />
-          {view === 'month' && <MonthView />}
-          {view === 'year' && <YearView />}
-          {view === 'decade' && <DecadeView />}
+          <div
+            className={cx(
+              'h-[343px] overflow-hidden transition-[max-height,margin-bottom] duration-[250ms] ease-[cubic-bezier(0.62,0,0.32,1)]',
+              calendarExpanded ? 'mb-[50px] max-h-[343px]' : 'mb-[48px] max-h-0'
+            )}
+          >
+            <Navigation />
+            {view === 'month' && <MonthView />}
+            {view === 'year' && <YearView />}
+            {view === 'decade' && <DecadeView />}
+          </div>
           <Footer />
         </motion.div>
       )}
