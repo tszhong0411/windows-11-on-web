@@ -41,29 +41,6 @@ export const variants: Variants = {
 const Calendar = () => {
   const { open, setOpen, view } = useCalendar()
   const { calendarExpanded } = useSettings()
-  const ref = React.useRef<HTMLDivElement>(null)
-
-  React.useEffect(() => {
-    const closeHandler = (e: MouseEvent) => {
-      if (
-        ref.current &&
-        !ref.current.contains(e.target as Node) &&
-        !(
-          document.querySelector('[data-id=calendar]') as HTMLButtonElement
-        ).contains(e.target as Node) &&
-        open
-      ) {
-        setOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', closeHandler)
-
-    return () => {
-      document.removeEventListener('mousedown', closeHandler)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open])
 
   useKey('Escape', () => setOpen(false))
 
@@ -71,7 +48,6 @@ const Calendar = () => {
     <AnimatePresence>
       {open && (
         <motion.div
-          ref={ref}
           initial={{
             transform: 'translateX(calc(100% + 48px))',
           }}
@@ -85,14 +61,14 @@ const Calendar = () => {
             duration: 0.1,
           }}
           className={cx(
-            'acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 w-[334px] select-none rounded-lg border border-[rgba(117,117,117,0.4)] shadow-flyout'
+            'acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 w-[334px] select-none rounded-lg border border-shell shadow-flyout'
           )}
         >
           <Header />
           <div
             className={cx(
               'h-[343px] overflow-hidden transition-[max-height,margin-bottom] duration-[250ms] ease-[cubic-bezier(0.62,0,0.32,1)]',
-              calendarExpanded ? 'mb-[50px] max-h-[343px]' : 'mb-[48px] max-h-0'
+              calendarExpanded ? 'mb-[50px] max-h-[343px]' : 'mb-12 max-h-0'
             )}
           >
             <Navigation />

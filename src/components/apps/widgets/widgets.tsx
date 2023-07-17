@@ -10,36 +10,12 @@ import { useWidgets } from '@/hooks'
 import Button from '@/ui/button'
 
 const Widgets = () => {
-  const { open, setOpen } = useWidgets()
-  const ref = React.useRef<HTMLDivElement>(null)
-
-  React.useEffect(() => {
-    const closeHandler = (e: MouseEvent) => {
-      if (
-        ref.current &&
-        !ref.current.contains(e.target as Node) &&
-        !(
-          document.querySelector('[data-id=widgets]') as HTMLButtonElement
-        ).contains(e.target as Node) &&
-        open
-      ) {
-        setOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', closeHandler)
-
-    return () => {
-      document.removeEventListener('mousedown', closeHandler)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open])
+  const { open } = useWidgets()
 
   return (
     <AnimatePresence>
       {open && (
         <motion.div
-          ref={ref}
           initial={{
             transform: 'translateX(-100%)',
           }}
