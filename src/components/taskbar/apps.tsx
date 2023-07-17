@@ -19,7 +19,7 @@ import { CSS } from '@dnd-kit/utilities'
 import React from 'react'
 import { useLocalStorage } from 'react-use'
 
-import { NonDraggableApps, TaskbarApp, TaskbarApps } from '@/config'
+import { useStartMenu } from '@/hooks'
 
 import App from './app'
 
@@ -36,8 +36,32 @@ const SortableItemContext = React.createContext<Context>({
   ref() {},
 })
 
+export type TaskbarApp = {
+  name: string
+  id: string
+  active?: boolean
+} & React.ComponentPropsWithoutRef<'button'>
+
 const Apps = () => {
-  const [apps, setApps] = useLocalStorage('taskbar', TaskbarApps)
+  const { open, setOpen } = useStartMenu()
+  const nonDraggableApps: TaskbarApp[] = [
+    {
+      name: 'Start Menu',
+      id: 'start',
+      onClick: () => setOpen(!open),
+      active: open,
+    },
+    { name: 'Search', id: 'search' },
+    { name: 'Task View', id: 'task-view' },
+    { name: 'Chat', id: 'chat' },
+  ]
+
+  const taskbarApps: TaskbarApp[] = [
+    { name: 'Explorer', id: 'explorer' },
+    { name: 'Google Chrome', id: 'chrome' },
+    { name: 'Microsoft Store', id: 'store' },
+  ]
+  const [apps, setApps] = useLocalStorage('taskbar', taskbarApps)
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -72,13 +96,27 @@ const Apps = () => {
               paddingRight: `calc(40px * ${apps.length} + 4px * ${apps.length})`,
             }}
           >
-            {NonDraggableApps.map((app) => (
-              <App key={app.id} name={app.name} id={app.id} />
-            ))}
+            {nonDraggableApps.map((app) => {
+              const { name, id, active = false, ...rest } = app
+
+              return (
+                <App key={id} name={name} id={id} active={active} {...rest} />
+              )
+            })}
             <div className='absolute bottom-0 right-0 top-0 flex items-center gap-1 overflow-hidden'>
-              {apps.map((app, index) => (
-                <DraggableApp key={app.id} app={app} index={index} />
-              ))}
+              {apps.map((app, index) => {
+                const { id, ...rest } = app
+
+                return (
+                  <DraggableApp
+                    key={id}
+                    app={app}
+                    index={index}
+                    taskbarApps={taskbarApps}
+                    {...rest}
+                  />
+                )
+              })}
             </div>
           </div>
         </div>
@@ -90,10 +128,12 @@ const Apps = () => {
 type DraggableAppProps = {
   app: TaskbarApp
   index: number
+  taskbarApps: TaskbarApp[]
 }
 
 const DraggableApp = (props: DraggableAppProps) => {
-  const { app, index } = props
+  const { app, index, taskbarApps } = props
+  const { name, id, ...rest } = app
   const {
     attributes,
     listeners,
@@ -102,7 +142,7 @@ const DraggableApp = (props: DraggableAppProps) => {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: app.id })
+  } = useSortable({ id })
   const context = React.useMemo(
     () => ({
       attributes,
@@ -112,7 +152,7 @@ const DraggableApp = (props: DraggableAppProps) => {
     [attributes, listeners, setActivatorNodeRef]
   )
 
-  const containerWidth = TaskbarApps.length * 40 + (TaskbarApps.length - 1) * 4
+  const containerWidth = taskbarApps.length * 40 + (taskbarApps.length - 1) * 4
   const maximumLimit = containerWidth - ((index + 1) * 40 + index * 4)
   const minimumLimit = index * 40 * -1 + index * 4 * -1
 
@@ -133,15 +173,16 @@ const DraggableApp = (props: DraggableAppProps) => {
   }
 
   return (
-    <SortableItemContext.Provider value={context} key={app.id}>
+    <SortableItemContext.Provider value={context} key={id}>
       <App
-        name={app.name}
-        id={app.id}
+        name={name}
+        id={id}
         ref={setNodeRef}
         style={style}
         isDragging={isDragging}
         {...attributes}
         {...listeners}
+        {...rest}
       />
     </SortableItemContext.Provider>
   )
