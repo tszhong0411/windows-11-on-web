@@ -30,7 +30,7 @@ const Volume = () => {
 
     Copied from https://github.com/radix-ui/primitives/blob/main/packages/react/tooltip/src/Tooltip.tsx
   */
-  const handleDelayedOpen = React.useCallback(() => {
+  const delayedOpenHandler = React.useCallback(() => {
     window.clearTimeout(openTimerRef.current)
     openTimerRef.current = window.setTimeout(() => {
       setVolumeTooltipOpened(true)
@@ -106,7 +106,7 @@ const Volume = () => {
           <Tooltip open={volumeTooltipOpened}>
             <TooltipTrigger asChild>
               <SliderThumb
-                onMouseEnter={handleDelayedOpen}
+                onMouseEnter={delayedOpenHandler}
                 onMouseLeave={() => {
                   window.clearTimeout(openTimerRef.current)
                   setVolumeTooltipOpened(false)
