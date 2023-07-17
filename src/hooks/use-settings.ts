@@ -10,6 +10,12 @@ type SettingsStates = {
   nearbySharing: boolean
   muted: boolean
   calendarExpanded: boolean
+  desktop: {
+    iconSize: 'large-icons' | 'medium-icons' | 'small-icons'
+    autoArrangeIcons: boolean
+    alignIconsToGrid: boolean
+    showDesktopIcons: boolean
+  }
 }
 
 const initialStates: SettingsStates = {
@@ -21,6 +27,12 @@ const initialStates: SettingsStates = {
   nearbySharing: false,
   muted: false,
   calendarExpanded: true,
+  desktop: {
+    iconSize: 'small-icons',
+    autoArrangeIcons: false,
+    alignIconsToGrid: true,
+    showDesktopIcons: true,
+  },
 }
 
 type SettingsActions = {
@@ -32,6 +44,7 @@ type SettingsActions = {
   setNearbySharing: (nearbySharing: boolean) => void
   setMuted: (muted: boolean) => void
   setCalendarExpanded: (calendarExpanded: boolean) => void
+  setDesktop: (desktop: SettingsStates['desktop']) => void
 }
 
 export const useSettings = create<SettingsStates & SettingsActions>()(
@@ -49,6 +62,7 @@ export const useSettings = create<SettingsStates & SettingsActions>()(
       setNearbySharing: (nearbySharing) => set({ nearbySharing }),
       setMuted: (muted) => set({ muted }),
       setCalendarExpanded: (calendarExpanded) => set({ calendarExpanded }),
+      setDesktop: (desktop) => set({ desktop }),
     }),
     {
       name: 'settings',

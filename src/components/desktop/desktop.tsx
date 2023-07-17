@@ -3,6 +3,8 @@
 import { cx } from '@tszhong0411/utils'
 import React from 'react'
 
+import ContextMenu from './context-menu'
+
 type WallpaperProps = {
   children: React.ReactNode
 }
@@ -69,35 +71,41 @@ const Desktop = (props: WallpaperProps) => {
   }, [isSelecting])
 
   return (
-    <div
-      ref={ref}
-      className={cx(
-        'min-h-screen min-w-[100vw] bg-cover bg-center bg-no-repeat',
-        isSelecting && 'overflow-hidden'
-      )}
-      style={{
-        backgroundImage: 'url(/static/images/wallpaper.jpg)',
-      }}
-      data-id='desktop'
-    >
-      {children}
+    <ContextMenu>
+      <div
+        ref={ref}
+        className={cx(
+          'min-h-screen min-w-[100vw] bg-cover bg-center bg-no-repeat',
+          isSelecting && 'overflow-hidden'
+        )}
+        style={{
+          backgroundImage: 'url(/static/images/wallpaper.jpg)',
+        }}
+        data-id='desktop'
+      >
+        {children}
 
-      {/* Selection */}
-      {isSelecting && startPosition && endPosition && (
-        <span
-          style={{
-            width: `${Math.abs(endPosition.x - startPosition.x)}px`,
-            height: `${Math.abs(endPosition.y - startPosition.y)}px`,
-            transform: `translate(${
-              endPosition.x < startPosition.x ? endPosition.x : startPosition.x
-            }px, ${
-              endPosition.y < startPosition.y ? endPosition.y : startPosition.y
-            }px)`,
-          }}
-          className='block select-none border border-[#006ec6] bg-blue-500/30'
-        ></span>
-      )}
-    </div>
+        {/* Selection */}
+        {isSelecting && startPosition && endPosition && (
+          <span
+            style={{
+              width: `${Math.abs(endPosition.x - startPosition.x)}px`,
+              height: `${Math.abs(endPosition.y - startPosition.y)}px`,
+              transform: `translate(${
+                endPosition.x < startPosition.x
+                  ? endPosition.x
+                  : startPosition.x
+              }px, ${
+                endPosition.y < startPosition.y
+                  ? endPosition.y
+                  : startPosition.y
+              }px)`,
+            }}
+            className='block select-none border border-[#006ec6] bg-blue-500/30'
+          ></span>
+        )}
+      </div>
+    </ContextMenu>
   )
 }
 
