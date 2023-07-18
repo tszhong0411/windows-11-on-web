@@ -1,12 +1,20 @@
 import Image from 'next/image'
 import React from 'react'
 
-import { PowerIcon } from '@/components/icons'
+import {
+  ArrowCounterclockwiseIcon,
+  LockClosedIcon,
+  PersonSettingsIcon,
+  PowerIcon,
+  SettingsIcon,
+  SignOutIcon,
+} from '@/components/icons'
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/ui/dropdown-menu'
 
@@ -24,18 +32,50 @@ const Footer = () => {
               quality={100}
               alt='User profile picture'
             />
-            <div className='text-xs'>Tsz Hong Lai</div>
+            <div className='text-xs'>Hong</div>
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>Change account settings</DropdownMenuItem>
-          <DropdownMenuItem>Lock</DropdownMenuItem>
-          <DropdownMenuItem>Sign out</DropdownMenuItem>
+          <DropdownMenuItem>
+            <PersonSettingsIcon width={16} height={16} className='mr-3' />
+            Change account settings
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <LockClosedIcon width={16} height={16} className='mr-3' />
+            Lock
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <SignOutIcon width={16} height={16} className='mr-3' />
+            Sign out
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <button className='flex h-10 w-10 items-center justify-center rounded-[3px] transition-colors duration-150 hover:bg-white/70'>
-        <PowerIcon />
-      </button>
+      <DropdownMenu modal={false}>
+        <DropdownMenuTrigger asChild>
+          <button className='flex h-10 w-10 items-center justify-center rounded-[3px] transition-colors duration-150 hover:bg-white/70'>
+            <PowerIcon />
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>
+            <SettingsIcon width={16} height={16} className='mr-3' />
+            Sign-in options
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <PowerIcon width={16} height={16} className='mr-3' />
+            Shut down
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <ArrowCounterclockwiseIcon
+              width={16}
+              height={16}
+              className='mr-3'
+            />
+            Restart
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   )
 }
