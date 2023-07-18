@@ -22,12 +22,12 @@ import {
 import {
   AddCircleIcon,
   AlignIconsToGridIcon,
+  ArrowClockwiseIcon,
   AutoArrangeIconsIcon,
   DisplaySettingsIcon,
   LargeIconsIcon,
   MediumIconsIcon,
   PersonalizeIcon,
-  RefreshIcon,
   ShowDesktopIconsIcon,
   ShowMoreOptionsIcon,
   SortByIcon,
@@ -166,7 +166,7 @@ const SortBy = () => {
 const Refresh = () => {
   return (
     <ContextMenuItem>
-      <RefreshIcon width={14} height={14} className='mr-3' />
+      <ArrowClockwiseIcon width={14} height={14} className='mr-3' />
       Refresh
     </ContextMenuItem>
   )
