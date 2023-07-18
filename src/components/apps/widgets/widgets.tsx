@@ -5,12 +5,18 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 
-import { useWidgets } from '@/hooks'
+import { useClickOutside, useWidgets } from '@/hooks'
 
 import Button from '@/ui/button'
 
 const Widgets = () => {
-  const { open } = useWidgets()
+  const { open, setOpen } = useWidgets()
+  const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
+
+  useClickOutside(
+    () => setOpen(false),
+    [ref, document.querySelector('[data-id=widgets]')]
+  )
 
   return (
     <AnimatePresence>
@@ -29,6 +35,7 @@ const Widgets = () => {
             duration: 0.1,
           }}
           className='fixed bottom-[calc(12px+var(--taskbar-height))] left-3 top-3 z-50 flex w-[760px] select-none items-center justify-center rounded-lg bg-[#eaeaea]'
+          ref={setRef}
         >
           <div className='flex max-w-[480px] flex-col items-center text-center'>
             <div className='mb-8'>

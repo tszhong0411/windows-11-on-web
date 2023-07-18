@@ -15,7 +15,7 @@ export const useClickOutside = <T extends HTMLElement>(
           target?.hasAttribute('data-ignore-outside-clicks') ||
           (!document.body.contains(target) && target.tagName !== 'HTML')
         const shouldTrigger = nodes.every(
-          (node) => !!node && node.contains(event.target as Node)
+          (node) => !!node && !event.composedPath().includes(node)
         )
 
         shouldTrigger && !shouldIgnore && fn()

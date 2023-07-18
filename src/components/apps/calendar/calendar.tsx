@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { useKey } from 'react-use'
 
-import { useCalendar, useSettings } from '@/hooks'
+import { useCalendar, useClickOutside, useSettings } from '@/hooks'
 
 import DecadeView from './decade-view'
 import Footer from './footer'
@@ -41,8 +41,13 @@ export const variants: Variants = {
 const Calendar = () => {
   const { open, setOpen, view } = useCalendar()
   const { calendarExpanded } = useSettings()
+  const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
 
   useKey('Escape', () => setOpen(false))
+  useClickOutside(
+    () => setOpen(false),
+    [ref, document.querySelector('[data-id=calendar]')]
+  )
 
   return (
     <AnimatePresence>
@@ -63,6 +68,7 @@ const Calendar = () => {
           className={cx(
             'acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 w-[334px] select-none rounded-lg border border-shell shadow-flyout'
           )}
+          ref={setRef}
         >
           <Header />
           <div

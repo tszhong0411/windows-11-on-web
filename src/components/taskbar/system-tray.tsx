@@ -4,12 +4,7 @@ import { cx } from '@tszhong0411/utils'
 import dayjs from 'dayjs'
 import React from 'react'
 
-import {
-  useCalendar,
-  useClickOutside,
-  useQuickSettings,
-  useSettings,
-} from '@/hooks'
+import { useCalendar, useQuickSettings, useSettings } from '@/hooks'
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/ui/tooltip'
 import { getVolumeLevel } from '@/utils'
@@ -36,9 +31,6 @@ const SystemTray = () => {
 const QuickSettings = () => {
   const { volume, setVolume, wifi, muted } = useSettings()
   const { open, setOpen } = useQuickSettings()
-  const [ref, setRef] = React.useState<HTMLButtonElement | null>(null)
-
-  useClickOutside(() => setOpen(false), [ref])
 
   const adjustVolumeHandler = (e: React.WheelEvent<HTMLDivElement>) => {
     const scrollingUp = e.deltaY < 0
@@ -70,7 +62,7 @@ const QuickSettings = () => {
     <button
       className='flex cursor-default items-center gap-1.5 rounded px-2 text-right text-xs hover:bg-white/70'
       onClick={() => setOpen(!open)}
-      ref={setRef}
+      data-id='quick-settings'
     >
       {/* Network */}
       <Tooltip delayDuration={1000}>
@@ -125,9 +117,6 @@ const QuickSettings = () => {
 const Clock = () => {
   const { open, setOpen } = useCalendar()
   const [time, setTime] = React.useState(new Date())
-  const [ref, setRef] = React.useState<HTMLButtonElement | null>(null)
-
-  useClickOutside(() => setOpen(false), [ref])
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -143,7 +132,7 @@ const Clock = () => {
         <button
           onClick={() => setOpen(!open)}
           className='cursor-default rounded py-1 pl-2 pr-2 text-right text-xs hover:bg-white/70'
-          ref={setRef}
+          data-id='calendar'
         >
           <div>{dayjs(time).format('h:mm A')}</div>
           <div>{dayjs(time).format('M/D/YYYY')}</div>
