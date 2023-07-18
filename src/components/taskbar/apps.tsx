@@ -40,24 +40,25 @@ export type TaskbarApp = {
   name: string
   id: string
   active?: boolean
+  tooltip?: false
 } & React.ComponentPropsWithoutRef<'button'>
 
 const Apps = () => {
   const { open, setOpen } = useStartMenu()
   const nonDraggableApps: TaskbarApp[] = [
     {
-      name: 'Start Menu',
+      name: 'Start',
       id: 'start',
       onClick: () => setOpen(!open),
       active: open,
     },
     { name: 'Search', id: 'search' },
-    { name: 'Task View', id: 'task-view' },
+    { name: 'Task View', id: 'task-view', tooltip: false },
     { name: 'Chat', id: 'chat' },
   ]
 
   const taskbarApps: TaskbarApp[] = [
-    { name: 'Explorer', id: 'explorer' },
+    { name: 'File Explorer', id: 'explorer' },
     { name: 'Google Chrome', id: 'chrome' },
     { name: 'Microsoft Store', id: 'store' },
   ]
@@ -97,11 +98,9 @@ const Apps = () => {
             }}
           >
             {nonDraggableApps.map((app) => {
-              const { name, id, active = false, ...rest } = app
+              const { id, ...rest } = app
 
-              return (
-                <App key={id} name={name} id={id} active={active} {...rest} />
-              )
+              return <App key={id} id={id} {...rest} />
             })}
             <div className='absolute bottom-0 right-0 top-0 flex items-center gap-1 overflow-hidden'>
               {apps.map((app, index) => {
