@@ -41,7 +41,7 @@ const ContextMenuItem = React.forwardRef<
     <ContextMenuPrimitive.Item
       ref={ref}
       className={cx(
-        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-[rgba(0,0,0,0.6063)] [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
         className
       )}
       {...rest}
@@ -76,7 +76,7 @@ const ContextMenuCheckboxItem = React.forwardRef<
     <ContextMenuPrimitive.CheckboxItem
       ref={ref}
       className={cx(
-        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-[rgba(0,0,0,0.6063)] [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
         className
       )}
       {...rest}
@@ -99,7 +99,7 @@ const ContextMenuRadioItem = React.forwardRef<
     <ContextMenuPrimitive.RadioItem
       ref={ref}
       className={cx(
-        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-[rgba(0,0,0,0.6063)] [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
         className
       )}
       {...rest}
@@ -138,7 +138,7 @@ const ContextMenuSubTrigger = React.forwardRef<
       ref={ref}
       className={cx(
         'flex h-[28px] select-none items-center rounded-[3px] px-2.5 text-sm focus:outline-none [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
-        'data-[state=open]:bg-[rgba(0,0,0,0.0373)] data-[state=closed]:hover:bg-[rgba(0,0,0,0.0373)] data-[state=closed]:active:bg-[rgba(0,0,0,0.0241)] data-[state=closed]:active:text-[rgba(0,0,0,0.6063)]',
+        'data-[state=open]:bg-[rgba(0,0,0,0.0373)] data-[state=closed]:hover:bg-[rgba(0,0,0,0.0373)] data-[state=closed]:active:bg-[rgba(0,0,0,0.0241)] data-[state=closed]:active:text-secondary',
         className
       )}
       {...rest}

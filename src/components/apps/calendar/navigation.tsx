@@ -61,7 +61,7 @@ const Navigation = () => {
           'flex h-[34px] w-[238px] cursor-default items-center px-2 text-sm font-semibold',
           view === 'decade' && 'text-[rgba(0,0,0,0.345)]',
           view !== 'decade' &&
-            'hover:bg-[rgba(0,0,0,0.0373)] active:bg-[rgba(0,0,0,0.0241)] active:text-[rgba(0,0,0,0.6063)]'
+            'hover:bg-[rgba(0,0,0,0.0373)] active:bg-[rgba(0,0,0,0.0241)] active:text-secondary'
         )}
         onClick={navigateHandler}
       >
