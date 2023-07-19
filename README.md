@@ -18,6 +18,7 @@ This project aims to provide a web-based version of Windows 11, allowing users t
 - Taskbar
 
   - Show desktop is not functional
+  - Dropdown menu animation
 
 - Desktop
 
