@@ -1,8 +1,8 @@
-# Windows 11 on Web
+# 🖥️ Windows 11 on Web
 
 This project aims to provide a web-based version of Windows 11, allowing users to experience Windows 11 directly from their web browser.
 
-## Things need to be fixed
+## 🚀 Things need to be fixed
 
 ### Quick settings
 
@@ -32,7 +32,7 @@ This project aims to provide a web-based version of Windows 11, allowing users t
 
 - Scroll area: scrollbar animation
 
-## Resources
+## 📃 Resources
 
 - **Segoe Fluent Icons**: Segoe Fluent Icons is a comprehensive set of icons designed by Microsoft. These icons follow the Fluent Design System and can be used to enhance the visual appeal of your web application. You can find more information and download the Segoe Fluent Icons font from [official Microsoft documentation](https://learn.microsoft.com/en-us/windows/apps/design/style/segoe-fluent-icons-font).
 
@@ -45,3 +45,8 @@ This project aims to provide a web-based version of Windows 11, allowing users t
 - **Shell Template - Windows 11**: The Shell Template for Windows 11 is a Figma file that provides a design template for creating Windows 11-style interfaces. You can access the Shell Template from [Figma Community](https://www.figma.com/community/file/1035524331682993208).
 
 - **Windows UI 3**: The Windows UI toolkit provided by Microsoft which contains a set of components. You can access it from [Windows UI 3](https://www.figma.com/community/file/1159947337437047524)
+
+## 💖 Inspiration
+
+- **win11React** - [https://github.com/blueedgetechno/win11React](https://github.com/blueedgetechno/win11React)
+- **daedalOS** - [https://github.com/DustinBrett/daedalOS](https://github.com/DustinBrett/daedalOS)
