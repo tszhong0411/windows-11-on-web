@@ -4,32 +4,33 @@ This project aims to provide a web-based version of Windows 11, allowing users t
 
 ## Things need to be fixed
 
-- Quick settings
+### Quick settings
 
-  - Edit quick settings is not functional
-  - Nearby sharing is not functional
+- Edit quick settings is not functional
+- Nearby sharing is not functional
 
-- Calendar
+### Calendar
 
-  - Scroll animation
-  - Years calculate in decade view is not accurate
-  - Focus is not functional
+- Scroll animation
+- Years calculate in decade view is not accurate
+- Focus is not functional
 
-- Taskbar
+### Taskbar
 
-  - Show desktop is not functional
-  - Dropdown menu animation
+- Show desktop is not functional
+- Dropdown menu animation
 
-- Desktop
+### Desktop
 
-  - Context menu is not functional
+- Context menu is not functional
 
-- Start menu
+### Start menu
 
-  - Animation when change to all apps view / pinned and recommended view
+- Animation when change to all apps view / pinned and recommended view
 
-- UI
-  - Scroll area: scrollbar animation
+### UI
+
+- Scroll area: scrollbar animation
 
 ## Resources
 
