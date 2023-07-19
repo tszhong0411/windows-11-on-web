@@ -73,8 +73,8 @@ const Calendar = () => {
           <Header />
           <div
             className={cx(
-              'h-[343px] overflow-hidden transition-[max-height,margin-bottom] duration-[250ms] ease-[cubic-bezier(0.62,0,0.32,1)]',
-              calendarExpanded ? 'mb-[50px] max-h-[343px]' : 'mb-12 max-h-0'
+              'h-[353px] overflow-hidden transition-[max-height,margin-bottom] duration-[250ms] ease-[cubic-bezier(0.62,0,0.32,1)]',
+              calendarExpanded ? 'mb-[50px] max-h-[353px]' : 'mb-12 max-h-0'
             )}
           >
             <Navigation />
