@@ -1,6 +1,8 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
+import { App } from '@/types'
+
 type SettingsStates = {
   volume: number
   wifi: boolean
@@ -16,6 +18,7 @@ type SettingsStates = {
     alignIconsToGrid: boolean
     showDesktopIcons: boolean
   }
+  apps: App[]
 }
 
 const initialStates: SettingsStates = {
@@ -33,6 +36,64 @@ const initialStates: SettingsStates = {
     alignIconsToGrid: true,
     showDesktopIcons: true,
   },
+  apps: [
+    {
+      name: 'Edge',
+      id: 'edge',
+    },
+    {
+      name: 'Mail',
+      id: 'mail',
+    },
+    {
+      name: 'Calendar',
+      id: 'calendar',
+    },
+    {
+      name: 'Microsoft Store',
+      id: 'store',
+    },
+    {
+      name: 'Photos',
+      id: 'photos',
+    },
+    {
+      name: 'Settings',
+      id: 'settings',
+    },
+    {
+      name: 'Office',
+      id: 'office',
+    },
+    {
+      name: 'Solitaire & Casual Games',
+      id: 'solitaire',
+    },
+    {
+      name: 'Microsoft Clipchamp',
+      id: 'clipchamp',
+    },
+    {
+      name: 'Calculator',
+      id: 'calculator',
+    },
+    {
+      name: 'Google Chrome',
+      id: 'chrome',
+    },
+    {
+      name: 'File Explorer',
+      id: 'explorer',
+    },
+    {
+      name: 'Get Started',
+      id: 'get-started',
+    },
+    {
+      name: 'Terminal',
+      id: 'windows-terminal',
+    },
+  ],
 }
 
 type SettingsActions = {
@@ -45,6 +106,7 @@ type SettingsActions = {
   setMuted: (muted: boolean) => void
   setCalendarExpanded: (calendarExpanded: boolean) => void
   setDesktop: (desktop: SettingsStates['desktop']) => void
+  setApps: (apps: SettingsStates['apps']) => void
 }
 
 export const useSettings = create<SettingsStates & SettingsActions>()(
@@ -63,6 +125,7 @@ export const useSettings = create<SettingsStates & SettingsActions>()(
       setMuted: (muted) => set({ muted }),
       setCalendarExpanded: (calendarExpanded) => set({ calendarExpanded }),
       setDesktop: (desktop) => set({ desktop }),
+      setApps: (apps) => set({ apps }),
     }),
     {
       name: 'settings',

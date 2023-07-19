@@ -20,7 +20,15 @@ This project aims to provide a web-based version of Windows 11, allowing users t
   - Show desktop is not functional
 
 - Desktop
+
   - Context menu is not functional
+
+- Start menu
+
+  - Animation when change to all apps view / pinned and recommended view
+
+- UI
+  - Scroll area: scrollbar animation
 
 ## Resources
 

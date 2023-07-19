@@ -7,21 +7,27 @@ import { useKey } from 'react-use'
 
 import { useClickOutside, useStartMenu } from '@/hooks'
 
+import AllApps from './all-apps'
 import Footer from './footer'
+import Pinned from './pinned'
+import Recommended from './recommended'
 import Search from './search'
 
 const StartMenu = () => {
   const { open, setOpen } = useStartMenu()
-
-  const ref = useClickOutside<HTMLDivElement>(() => setOpen(false))
+  const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
+  const { allApps } = useStartMenu()
 
   useKey('Escape', () => setOpen(false))
+  useClickOutside(
+    () => setOpen(false),
+    [ref, document.querySelector('[data-id=start]')]
+  )
 
   return (
     <AnimatePresence>
       {open && (
         <motion.div
-          ref={ref}
           initial={{
             transform: 'translate(-50%, calc(100% + 48px))',
           }}
@@ -35,8 +41,17 @@ const StartMenu = () => {
             duration: 0.15,
           }}
           className='acrylic fixed bottom-[calc(12px+var(--taskbar-height))] left-1/2 z-40 flex h-[726px] w-[642px] select-none flex-col rounded-lg border border-shell shadow-shell'
+          ref={setRef}
         >
           <Search />
+          {allApps ? (
+            <AllApps />
+          ) : (
+            <>
+              <Pinned />
+              <Recommended />
+            </>
+          )}
           <Footer />
         </motion.div>
       )}
