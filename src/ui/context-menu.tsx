@@ -22,7 +22,7 @@ const ContextMenuContent = React.forwardRef<
       <ContextMenuPrimitive.Content
         ref={ref}
         className={cx(
-          'acrylic z-50 rounded-lg border border-[rgba(0,0,0,0.0578)] p-[5px] shadow-flyout',
+          'acrylic z-50 rounded-lg border border-[rgba(0,0,0,0.0578)] p-[5px] shadow-flyout [&_[role=separator]]:-mx-0.5',
           className
         )}
         {...rest}
@@ -163,7 +163,7 @@ const ContextMenuSubContent = React.forwardRef<
     <ContextMenuPrimitive.SubContent
       ref={ref}
       className={cx(
-        'acrylic z-50 rounded-lg border border-[rgba(0,0,0,0.0578)] p-[5px] shadow-[0px_8px_16px_0_rgba(0,0,0,0.14)]',
+        'acrylic z-50 rounded-lg border border-[rgba(0,0,0,0.0578)] py-[5px] shadow-[0px_8px_16px_0_rgba(0,0,0,0.14)] [&_[role^=menuitem]]:mx-[5px]',
         className
       )}
       {...rest}

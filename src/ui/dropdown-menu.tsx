@@ -23,7 +23,7 @@ const DropdownMenuContent = React.forwardRef<
         ref={ref}
         sideOffset={sideOffset}
         className={cx(
-          'acrylic z-50 rounded-lg border border-[rgba(0,0,0,0.0578)] p-[5px] shadow-flyout',
+          'acrylic z-50 rounded-lg border border-[rgba(0,0,0,0.0578)] py-[5px] shadow-flyout',
           className
         )}
         {...rest}
@@ -42,7 +42,7 @@ const DropdownMenuItem = React.forwardRef<
     <DropdownMenuPrimitive.Item
       ref={ref}
       className={cx(
-        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'mx-[5px] flex h-[28px] select-none items-center rounded-[3px] px-2.5 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
         className
       )}
       {...rest}
