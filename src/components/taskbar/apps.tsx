@@ -40,7 +40,8 @@ export type TaskbarApp = {
   name: string
   id: string
   active?: boolean
-  tooltip?: false
+  tooltip?: string
+  'data-id'?: string
 } & React.ComponentPropsWithoutRef<'button'>
 
 const Apps = () => {
@@ -48,20 +49,23 @@ const Apps = () => {
   const nonDraggableApps: TaskbarApp[] = [
     {
       name: 'Start',
+      tooltip: 'Start',
       id: 'start',
       onClick: () => setOpen(!open),
       active: open,
+      'data-id': 'start',
     },
-    { name: 'Search', id: 'search' },
-    { name: 'Task View', id: 'task-view', tooltip: false },
-    { name: 'Chat', id: 'chat' },
+    { name: 'Search', tooltip: 'Search', id: 'search' },
+    { name: 'Task View', id: 'task-view' },
+    { name: 'Chat', tooltip: 'Chat', id: 'chat' },
   ]
 
   const taskbarApps: TaskbarApp[] = [
-    { name: 'File Explorer', id: 'explorer' },
-    { name: 'Google Chrome', id: 'chrome' },
-    { name: 'Microsoft Store', id: 'store' },
+    { name: 'File Explorer', tooltip: 'File Explorer', id: 'explorer' },
+    { name: 'Google Chrome', tooltip: 'Google Chrome', id: 'chrome' },
+    { name: 'Microsoft Store', tooltip: 'Microsoft Store', id: 'store' },
   ]
+
   const [apps, setApps] = useLocalStorage('taskbar', taskbarApps)
   const sensors = useSensors(
     useSensor(PointerSensor),
