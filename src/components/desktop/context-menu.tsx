@@ -43,7 +43,7 @@ const ContextMenu = (props: ContextMenuProps) => {
 
   return (
     <UIContextMenu>
-      <ContextMenuTrigger>{children}</ContextMenuTrigger>
+      <ContextMenuTrigger asChild>{children}</ContextMenuTrigger>
       <ContextMenuContent>
         <View />
         <SortBy />
