@@ -5,7 +5,7 @@ import '@/styles/globals.css'
 
 import Providers from './providers'
 
-const segoeUIVF = localfont({
+const segoeUI = localfont({
   src: '../../public/static/fonts/segoe-ui.ttf',
   variable: '--font-segoe-ui',
   display: 'swap',
@@ -26,7 +26,7 @@ const RootLayout = (props: RootLayoutProps) => {
   return (
     <html
       lang='en-US'
-      className={cx(segoeUIVF.variable, 'scroll-smooth antialiased')}
+      className={cx(segoeUI.variable, 'scroll-smooth antialiased')}
     >
       <body className='overflow-hidden font-default'>
         <Providers>{children}</Providers>
