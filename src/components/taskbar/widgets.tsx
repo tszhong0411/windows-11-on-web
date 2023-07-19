@@ -12,6 +12,7 @@ const Widgets = () => {
       name='Widgets'
       id='widgets'
       onClick={() => setOpen(!open)}
+      tooltip='Widgets'
       data-id='widgets'
     />
   )

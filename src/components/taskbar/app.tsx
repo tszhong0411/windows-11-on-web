@@ -24,7 +24,7 @@ const App = React.forwardRef<HTMLButtonElement, AppProps>((props, ref) => {
   } = props
 
   return (
-    <Tooltip delayDuration={1000} open={tooltip}>
+    <Tooltip delayDuration={1000} open={tooltip ? undefined : false}>
       <TooltipTrigger asChild>
         <button
           className={cx(
@@ -53,7 +53,7 @@ const App = React.forwardRef<HTMLButtonElement, AppProps>((props, ref) => {
         </button>
       </TooltipTrigger>
       <TooltipContent sideOffset={18}>
-        <span>{name}</span>
+        <span>{tooltip}</span>
       </TooltipContent>
     </Tooltip>
   )
