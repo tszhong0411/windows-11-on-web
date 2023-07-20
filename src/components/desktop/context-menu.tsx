@@ -109,6 +109,7 @@ const View = () => {
                 autoArrangeIcons: value,
               })
             }}
+            disabled={!desktop.showDesktopIcons}
           >
             <AutoArrangeIconsIcon width={14} height={14} className='mr-3' />
             Auto arrange icons
@@ -121,6 +122,7 @@ const View = () => {
                 alignIconsToGrid: value,
               })
             }}
+            disabled={!desktop.showDesktopIcons}
           >
             <AlignIconsToGridIcon width={14} height={14} className='mr-3' />
             Align icons to grid
@@ -189,7 +191,7 @@ const New = () => {
               height={18}
               quality={100}
               draggable={false}
-              alt=''
+              alt='Folder'
             />
             Folder
           </ContextMenuItem>
@@ -201,7 +203,7 @@ const New = () => {
               height={18}
               quality={100}
               draggable={false}
-              alt=''
+              alt='Shortcut'
             />
             Shortcut
           </ContextMenuItem>
@@ -213,7 +215,7 @@ const New = () => {
               height={18}
               quality={100}
               draggable={false}
-              alt=''
+              alt='Bitmap image'
             />
             Bitmap image
           </ContextMenuItem>
@@ -225,7 +227,7 @@ const New = () => {
               height={18}
               quality={100}
               draggable={false}
-              alt=''
+              alt='Text document'
             />
             Text Document
           </ContextMenuItem>
@@ -237,7 +239,7 @@ const New = () => {
               height={18}
               quality={100}
               draggable={false}
-              alt=''
+              alt='Compressed folder'
             />
             Compressed (zipped) Folder
           </ContextMenuItem>

@@ -76,12 +76,14 @@ const ContextMenuCheckboxItem = React.forwardRef<
     <ContextMenuPrimitive.CheckboxItem
       ref={ref}
       className={cx(
-        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'group flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm',
+        'hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'data-[disabled]:pointer-events-none data-[disabled]:opacity-40',
         className
       )}
       {...rest}
     >
-      <ContextMenuPrimitive.ItemIndicator className='absolute left-[18px]'>
+      <ContextMenuPrimitive.ItemIndicator className='absolute left-[18px] group-data-[disabled]:hidden'>
         <CheckmarkIcon width={10} height={10} />
       </ContextMenuPrimitive.ItemIndicator>
       {children}
@@ -99,12 +101,14 @@ const ContextMenuRadioItem = React.forwardRef<
     <ContextMenuPrimitive.RadioItem
       ref={ref}
       className={cx(
-        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'group flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm',
+        'hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'data-[disabled]:pointer-events-none data-[disabled]:opacity-40',
         className
       )}
       {...rest}
     >
-      <ContextMenuPrimitive.ItemIndicator className='absolute left-[18px]'>
+      <ContextMenuPrimitive.ItemIndicator className='absolute left-[18px] group-data-[disabled]:hidden'>
         <PointIcon />
       </ContextMenuPrimitive.ItemIndicator>
       {children}
