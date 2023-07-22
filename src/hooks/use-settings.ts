@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware'
 
 import { App } from '@/types'
 
-type SettingsStates = {
+export type SettingsStates = {
   volume: number
   wifi: boolean
   bluetooth: boolean

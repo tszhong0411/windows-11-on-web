@@ -3,6 +3,7 @@
 import { cx } from '@tszhong0411/utils'
 import React from 'react'
 
+import App from './app'
 import ContextMenu from './context-menu'
 
 type WallpaperProps = {
@@ -67,7 +68,7 @@ const Desktop = (props: WallpaperProps) => {
           role='button'
           tabIndex={0}
           className={cx(
-            'min-h-screen min-w-[100vw] cursor-default bg-cover bg-center bg-no-repeat',
+            'min-h-screen min-w-[100vw] cursor-default bg-cover bg-center bg-no-repeat focus:outline-none',
             isSelecting && 'overflow-hidden'
           )}
           style={{
@@ -77,6 +78,9 @@ const Desktop = (props: WallpaperProps) => {
           onMouseMove={mouseMoveHandler}
           onMouseUp={mouseUpHandler}
         >
+          <div className='flex flex-wrap'>
+            <App />
+          </div>
           {/* Selection */}
           {isSelecting && position.start && position.end && (
             <div
