@@ -1,6 +1,7 @@
 export { useCalendar } from './use-calendar'
 export { useClickOutside } from './use-click-outside'
 export { useQuickSettings } from './use-quick-settings'
+export { useSelection } from './use-selection'
 export { useSettings } from './use-settings'
 export { useStartMenu } from './use-start-menu'
 export { useWidgets } from './use-widgets'
