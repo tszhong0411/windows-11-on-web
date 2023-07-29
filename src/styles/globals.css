@@ -7,12 +7,21 @@
     background: rgba(243, 243, 243, 0.9);
     backdrop-filter: blur(60px);
   }
+
+  .mica {
+    background: rgba(243, 243, 243, 0.9);
+    backdrop-filter: blur(240px);
+  }
 }
 
 @layer base {
   :root {
     /* Colors */
     --text-secondary: rgba(0, 0, 0, 0.6063);
+
+    --subtle-secondary: rgba(0, 0, 0, 0.0373);
+
+    --surface-stroke-default: rgba(117, 117, 117, 0.4);
 
     /* Variables */
     --taskbar-height: 48px;
@@ -29,7 +38,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    z-index: 100;
+    z-index: 10000;
     background: #ff820057;
     opacity: 0;
     pointer-events: none;
