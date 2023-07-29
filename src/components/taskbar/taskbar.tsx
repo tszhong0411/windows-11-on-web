@@ -30,7 +30,7 @@ const Taskbar = () => {
     <>
       <div
         className={cx(
-          'acrylic absolute bottom-0 left-0 right-0 z-50 flex h-12 min-w-[100vw] items-center justify-between pl-[3px]',
+          'acrylic absolute bottom-0 left-0 right-0 z-[9000] flex h-12 min-w-[100vw] items-center justify-between pl-[3px]',
           'before:absolute before:left-0 before:right-0 before:top-0 before:h-px before:w-full before:bg-[#bebebe] before:content-[""]'
         )}
         ref={ref}

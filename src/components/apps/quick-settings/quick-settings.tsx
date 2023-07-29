@@ -37,7 +37,7 @@ const QuickSettings = () => {
           transition={{
             duration: 0.1,
           }}
-          className='acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 flex h-[332px] w-[360px] select-none flex-col justify-between rounded-lg border border-shell shadow-shell'
+          className='acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-[9000] flex h-[332px] w-[360px] select-none flex-col justify-between rounded-lg border border-shell shadow-shell'
           ref={setRef}
         >
           <Toggles />

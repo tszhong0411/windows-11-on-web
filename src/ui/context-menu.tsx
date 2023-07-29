@@ -22,7 +22,7 @@ const ContextMenuContent = React.forwardRef<
       <ContextMenuPrimitive.Content
         ref={ref}
         className={cx(
-          'acrylic z-50 rounded-lg border border-[rgba(0,0,0,0.0578)] p-[5px] shadow-flyout [&_[role=separator]]:-mx-0.5',
+          'acrylic z-[9500] rounded-lg border border-[rgba(0,0,0,0.0578)] p-[5px] shadow-flyout [&_[role=separator]]:-mx-0.5',
           className
         )}
         {...rest}
@@ -41,7 +41,7 @@ const ContextMenuItem = React.forwardRef<
     <ContextMenuPrimitive.Item
       ref={ref}
       className={cx(
-        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 text-sm hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'flex h-[28px] select-none items-center rounded-[3px] px-2.5 text-sm hover:bg-[--subtle-secondary] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-[--text-secondary] [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
         className
       )}
       {...rest}
@@ -77,7 +77,7 @@ const ContextMenuCheckboxItem = React.forwardRef<
       ref={ref}
       className={cx(
         'group flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm',
-        'hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'hover:bg-[--subtle-secondary] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-[--text-secondary] [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
         'data-[disabled]:pointer-events-none data-[disabled]:opacity-40',
         className
       )}
@@ -102,7 +102,7 @@ const ContextMenuRadioItem = React.forwardRef<
       ref={ref}
       className={cx(
         'group flex h-[28px] select-none items-center rounded-[3px] px-2.5 pl-10 text-sm',
-        'hover:bg-[rgba(0,0,0,0.0373)] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-secondary [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
+        'hover:bg-[--subtle-secondary] focus:outline-none active:bg-[rgba(0,0,0,0.0241)] active:text-[--text-secondary] [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
         'data-[disabled]:pointer-events-none data-[disabled]:opacity-40',
         className
       )}
@@ -142,7 +142,7 @@ const ContextMenuSubTrigger = React.forwardRef<
       ref={ref}
       className={cx(
         'flex h-[28px] select-none items-center rounded-[3px] px-2.5 text-sm focus:outline-none [&:not(:first-child):not(div[role=separator]+div[role=menuitem])]:mt-1',
-        'data-[state=open]:bg-[rgba(0,0,0,0.0373)] data-[state=closed]:hover:bg-[rgba(0,0,0,0.0373)] data-[state=closed]:active:bg-[rgba(0,0,0,0.0241)] data-[state=closed]:active:text-secondary',
+        'data-[state=open]:bg-[--subtle-secondary] data-[state=closed]:hover:bg-[--subtle-secondary] data-[state=closed]:active:bg-[rgba(0,0,0,0.0241)] data-[state=closed]:active:text-[--text-secondary]',
         className
       )}
       {...rest}
@@ -167,7 +167,7 @@ const ContextMenuSubContent = React.forwardRef<
     <ContextMenuPrimitive.SubContent
       ref={ref}
       className={cx(
-        'acrylic z-50 rounded-lg border border-[rgba(0,0,0,0.0578)] py-[5px] shadow-[0px_8px_16px_0_rgba(0,0,0,0.14)] [&_[role^=menuitem]]:mx-[5px]',
+        'acrylic z-[9600] rounded-lg border border-[rgba(0,0,0,0.0578)] py-[5px] shadow-[0px_8px_16px_0_rgba(0,0,0,0.14)] [&_[role^=menuitem]]:mx-[5px]',
         className
       )}
       {...rest}

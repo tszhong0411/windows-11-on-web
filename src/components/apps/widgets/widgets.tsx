@@ -34,7 +34,7 @@ const Widgets = () => {
           transition={{
             duration: 0.1,
           }}
-          className='fixed bottom-[calc(12px+var(--taskbar-height))] left-3 top-3 z-50 flex w-[760px] select-none items-center justify-center rounded-lg bg-[#eaeaea]'
+          className='fixed bottom-[calc(12px+var(--taskbar-height))] left-3 top-3 z-[9000] flex w-[760px] select-none items-center justify-center rounded-lg bg-[#eaeaea]'
           ref={setRef}
         >
           <div className='flex max-w-[480px] flex-col items-center text-center'>

@@ -66,7 +66,7 @@ const Calendar = () => {
             duration: 0.1,
           }}
           className={cx(
-            'acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-40 w-[334px] select-none rounded-lg border border-shell shadow-flyout'
+            'acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-[9000] w-[334px] select-none rounded-lg border border-shell shadow-flyout'
           )}
           ref={setRef}
         >

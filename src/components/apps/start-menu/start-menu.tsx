@@ -40,7 +40,7 @@ const StartMenu = () => {
           transition={{
             duration: 0.15,
           }}
-          className='acrylic fixed bottom-[calc(12px+var(--taskbar-height))] left-1/2 z-40 flex h-[726px] w-[642px] select-none flex-col rounded-lg border border-shell shadow-shell'
+          className='acrylic fixed bottom-[calc(12px+var(--taskbar-height))] left-1/2 z-[9000] flex h-[726px] w-[642px] select-none flex-col rounded-lg border border-shell shadow-shell'
           ref={setRef}
         >
           <Search />
