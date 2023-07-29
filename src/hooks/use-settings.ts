@@ -31,7 +31,7 @@ const initialStates: SettingsStates = {
   muted: false,
   calendarExpanded: true,
   desktop: {
-    iconSize: 'small-icons',
+    iconSize: 'medium-icons',
     autoArrangeIcons: false,
     alignIconsToGrid: true,
     showDesktopIcons: true,
