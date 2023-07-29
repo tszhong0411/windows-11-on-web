@@ -60,7 +60,10 @@ const QuickSettings = () => {
 
   return (
     <button
-      className='flex cursor-default items-center gap-1.5 rounded px-2 text-right text-xs hover:bg-white/70'
+      className={cx(
+        'flex cursor-default items-center gap-1.5 rounded px-2 text-right text-xs hover:bg-white/70',
+        open && 'bg-white/70'
+      )}
       onClick={() => setOpen(!open)}
       data-id='quick-settings'
     >
@@ -131,7 +134,10 @@ const Clock = () => {
       <TooltipTrigger asChild>
         <button
           onClick={() => setOpen(!open)}
-          className='cursor-default rounded py-1 pl-2 pr-2 text-right text-xs hover:bg-white/70'
+          className={cx(
+            'cursor-default rounded py-1 pl-2 pr-2 text-right text-xs hover:bg-white/70',
+            open && 'bg-white/70'
+          )}
           data-id='calendar'
         >
           <div>{dayjs(time).format('h:mm A')}</div>
