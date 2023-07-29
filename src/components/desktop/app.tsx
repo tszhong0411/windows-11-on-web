@@ -2,41 +2,39 @@ import { cx } from '@tszhong0411/utils'
 import Image from 'next/image'
 import React from 'react'
 
+import { sizes } from '@/lib/constants'
 import { useSettings } from '@/hooks'
-import { SettingsStates } from '@/hooks/use-settings'
 
-const App = () => {
+type AppProps = {
+  focused: boolean
+} & React.ComponentPropsWithoutRef<'div'>
+
+const App = (props: AppProps) => {
+  const { focused, ...rest } = props
   const { desktop } = useSettings()
-
-  const getIconSize = (size: SettingsStates['desktop']['iconSize']) => {
-    switch (size) {
-      case 'large-icons':
-        return 96
-      case 'medium-icons':
-        return 48
-      case 'small-icons':
-        return 32
-      default:
-        throw new Error('Invalid icon size')
-    }
-  }
 
   return (
     <div
+      role='button'
+      tabIndex={0}
       className={cx(
-        'flex select-none flex-col items-center justify-center gap-0.5 border border-black',
-        desktop.iconSize === 'large-icons' && 'h-[118px] w-28',
-        desktop.iconSize === 'medium-icons' && 'h-[70px] w-[78px]',
-        desktop.iconSize === 'small-icons' && 'h-[54px] w-[78px]'
+        'flex select-none flex-col items-center justify-center gap-0.5 rounded border-black/5 hover:border hover:bg-white/10 focus:outline-none',
+        focused && 'bg-[rgba(225,225,225,0.3)]'
       )}
+      style={{
+        width: sizes.desktop[desktop.iconSize].iconContainer.width,
+        height: sizes.desktop[desktop.iconSize].iconContainer.height,
+      }}
+      {...rest}
     >
       <Image
         src='/static/images/apps/recycle-bin/icon.png'
-        width={getIconSize(desktop.iconSize)}
-        height={getIconSize(desktop.iconSize)}
+        width={sizes.desktop[desktop.iconSize].icon}
+        height={sizes.desktop[desktop.iconSize].icon}
         quality={100}
         alt='Recycle Bin'
         draggable={false}
+        priority
       />
       <div className='break-words text-xs tracking-[-0.1px] text-white [text-shadow:rgb(0_0_0_/_70%)_0px_0px_3px,_rgb(0_0_0)_0px_0px_2px,_rgb(0_0_0_/_75%)_0px_1px_1px,_rgb(0_0_0)_0px_1px_2px,_rgb(0_0_0_/_75%)_0px_2px_1px,_rgb(0_0_0)_0px_0px_1px]'>
         Recycle Bin
