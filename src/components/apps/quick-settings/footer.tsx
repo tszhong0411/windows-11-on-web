@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Edit quick settings */}
         <Tooltip>
           <TooltipTrigger asChild>
-            <button className='flex h-10 w-9 items-center justify-center rounded hover:bg-[rgba(0,0,0,0.0373)]'>
+            <button className='flex h-10 w-9 items-center justify-center rounded hover:bg-[--subtle-secondary]'>
               <EditIcon width={16} height={16} />
             </button>
           </TooltipTrigger>
@@ -18,7 +18,7 @@ const Footer = () => {
         {/* All settings */}
         <Tooltip>
           <TooltipTrigger asChild>
-            <button className='flex h-10 w-9 cursor-default cursor-default items-center justify-center rounded hover:bg-[rgba(0,0,0,0.0373)]'>
+            <button className='flex h-10 w-9 cursor-default items-center justify-center rounded hover:bg-[--subtle-secondary]'>
               <SettingsIcon width={16} height={16} />
             </button>
           </TooltipTrigger>

@@ -23,7 +23,7 @@ const RecentFile = (props: RecentFileProps) => {
       </div>
       <div className='flex flex-col gap-px text-xs'>
         <div>{name}</div>
-        <div className='text-secondary'>{description}</div>
+        <div className='text-[--text-secondary]'>{description}</div>
       </div>
     </div>
   )

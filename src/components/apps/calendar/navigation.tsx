@@ -61,7 +61,7 @@ const Navigation = () => {
           'flex h-[34px] w-[238px] cursor-default items-center px-2 text-sm font-semibold',
           view === 'decade' && 'text-[rgba(0,0,0,0.345)]',
           view !== 'decade' &&
-            'hover:bg-[rgba(0,0,0,0.0373)] active:bg-[rgba(0,0,0,0.0241)] active:text-secondary'
+            'hover:bg-[--subtle-secondary] active:bg-[rgba(0,0,0,0.0241)] active:text-[--text-secondary]'
         )}
         onClick={navigateHandler}
       >
@@ -74,7 +74,7 @@ const Navigation = () => {
           className={cx(
             'flex h-[34px] w-8 cursor-default items-center justify-center',
             !(isMinDecade || isMinYear || isMinMonth) &&
-              'hover:bg-[rgba(0,0,0,0.0373)] active:bg-[rgba(0,0,0,0.0241)]'
+              'hover:bg-[--subtle-secondary] active:bg-[rgba(0,0,0,0.0241)]'
           )}
           onClick={subtractHandler}
           disabled={isMinDecade || isMinYear || isMinMonth}
@@ -89,7 +89,7 @@ const Navigation = () => {
           className={cx(
             'flex h-[34px] w-8 cursor-default items-center justify-center',
             !(isMaxDecade || isMaxYear || isMaxMonth) &&
-              'hover:bg-[rgba(0,0,0,0.0373)] active:bg-[rgba(0,0,0,0.0241)]'
+              'hover:bg-[--subtle-secondary] active:bg-[rgba(0,0,0,0.0241)]'
           )}
           onClick={addHandler}
           disabled={isMaxDecade || isMaxYear || isMaxMonth}

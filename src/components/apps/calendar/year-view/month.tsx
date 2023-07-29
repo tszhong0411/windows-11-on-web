@@ -18,7 +18,7 @@ const Month = (props: MonthProps) => {
       className={cx(
         'h-16 w-16',
         !isInYear &&
-          'text-secondary hover:text-[rgba(0,0,0,0.8956)] active:text-[rgba(0,0,0,0.4458)]',
+          'text-[--text-secondary] hover:text-[rgba(0,0,0,0.8956)] active:text-[rgba(0,0,0,0.4458)]',
         isCurrentMonth &&
           'bg-[#005fb8] text-white hover:bg-[rgba(0,95,184,0.9)] hover:text-white active:bg-[rgba(0,95,184,0.8)] active:text-white/70'
       )}

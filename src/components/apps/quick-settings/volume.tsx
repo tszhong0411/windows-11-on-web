@@ -71,7 +71,7 @@ const Volume = () => {
         <Tooltip delayDuration={1000}>
           <TooltipTrigger asChild>
             <button
-              className='flex h-10 w-10 shrink-0 cursor-default items-center justify-center rounded hover:bg-[rgba(0,0,0,0.0373)]'
+              className='flex h-10 w-10 shrink-0 cursor-default items-center justify-center rounded hover:bg-[--subtle-secondary]'
               onClick={() => setMuted(!muted)}
             >
               {muted ? (

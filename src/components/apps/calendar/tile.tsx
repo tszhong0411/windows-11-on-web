@@ -8,7 +8,7 @@ const Tile = (props: TileProps) => {
   return (
     <div
       className={cx(
-        'flex items-center justify-center rounded-full text-sm hover:bg-[rgba(0,0,0,0.0373)] active:bg-[rgba(0,0,0,0.0241)] active:text-secondary',
+        'flex items-center justify-center rounded-full text-sm hover:bg-[--subtle-secondary] active:bg-[rgba(0,0,0,0.0241)] active:text-[--text-secondary]',
         className
       )}
       {...rest}

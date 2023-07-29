@@ -20,7 +20,7 @@ const Day = (props: DayProps) => {
       className={cx(
         'relative h-[41px] w-[41px]',
         !isInMonth &&
-          'text-secondary hover:text-[rgba(0,0,0,0.8956)] active:text-[rgba(0,0,0,0.4458)]',
+          'text-[--text-secondary] hover:text-[rgba(0,0,0,0.8956)] active:text-[rgba(0,0,0,0.4458)]',
         date.isToday() &&
           'bg-[#005fb8] text-white hover:bg-[rgba(0,95,184,0.9)] hover:text-white active:bg-[rgba(0,95,184,0.8)] active:text-white/70',
         selected &&
