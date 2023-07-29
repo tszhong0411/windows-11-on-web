@@ -28,7 +28,12 @@ const RootLayout = (props: RootLayoutProps) => {
       lang='en-US'
       className={cx(segoeUI.variable, 'scroll-smooth antialiased')}
     >
-      <body className='overflow-hidden font-default'>
+      <body
+        className='min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat font-default'
+        style={{
+          backgroundImage: 'url(/static/images/wallpaper.jpg)',
+        }}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
