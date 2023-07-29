@@ -19,9 +19,6 @@ module.exports = {
         shell: 'rgba(117, 117, 117, 0.4)',
         divider: 'rgba(0, 0, 0, 0.0803)',
       },
-      textColor: {
-        secondary: 'var(--text-secondary)',
-      },
     },
   },
   plugins: [],
