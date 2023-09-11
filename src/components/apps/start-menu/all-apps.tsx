@@ -48,9 +48,9 @@ const AllApps = () => {
                 {letter}
               </div>
             </div>
-            {sortedApps.get(letter)?.map((app) => (
-              <App key={app.id} {...app} />
-            ))}
+            {sortedApps
+              .get(letter)
+              ?.map((app) => <App key={app.id} {...app} />)}
           </React.Fragment>
         ))}
       </ScrollArea>
