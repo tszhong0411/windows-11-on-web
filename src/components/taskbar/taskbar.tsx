@@ -8,13 +8,13 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from '@/ui/dropdown-menu'
 
+import { SettingsIcon, TaskManagerIcon } from '../icons'
 import Apps from './apps'
 import SystemTray from './system-tray'
 import Widgets from './widgets'
-import { SettingsIcon, TaskManagerIcon } from '../icons'
 
 const Taskbar = () => {
   const ref = React.useRef<HTMLDivElement>(null)
@@ -49,9 +49,9 @@ const Taskbar = () => {
       </div>
       <DropdownMenu
         open={open}
-        onOpenChange={(open) => {
-          setOpen(open)
-          if (!open) setLeft(null)
+        onOpenChange={(o) => {
+          setOpen(o)
+          if (!o) setLeft(null)
         }}
       >
         <DropdownMenuTrigger asChild>
@@ -59,9 +59,9 @@ const Taskbar = () => {
             <span
               className='fixed bottom-12'
               style={{
-                left,
+                left
               }}
-            ></span>
+            />
           )}
         </DropdownMenuTrigger>
         <DropdownMenuContent side='top' sideOffset={0} align='start'>

@@ -1,7 +1,6 @@
 'use client'
 
-import { AnimatePresence } from 'framer-motion'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 import { useKey } from 'react-use'
 
@@ -26,16 +25,16 @@ const QuickSettings = () => {
       {open && (
         <motion.div
           initial={{
-            transform: 'translateY(calc(100% + 48px))',
+            transform: 'translateY(calc(100% + 48px))'
           }}
           animate={{
-            transform: 'translateY(0%)',
+            transform: 'translateY(0%)'
           }}
           exit={{
-            transform: 'translateY(calc(100% + 48px))',
+            transform: 'translateY(calc(100% + 48px))'
           }}
           transition={{
-            duration: 0.1,
+            duration: 0.1
           }}
           className='acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-[9000] flex h-[332px] w-[360px] select-none flex-col justify-between rounded-lg border border-shell shadow-shell'
           ref={setRef}

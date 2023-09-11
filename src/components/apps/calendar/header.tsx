@@ -1,9 +1,7 @@
 import dayjs from 'dayjs'
 
-import { useCalendar, useSettings } from '@/hooks'
-
 import { ChevronDownIcon, ChevronUpIcon } from '@/components/icons'
-
+import { useCalendar, useSettings } from '@/hooks'
 import Button from '@/ui/button'
 
 const Header = () => {
@@ -18,6 +16,7 @@ const Header = () => {
           setDate(dayjs())
           setView('month')
         }}
+        type='button'
       >
         {dayjs().format('dddd, MMMM D')}
       </button>

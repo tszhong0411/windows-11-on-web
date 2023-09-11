@@ -7,15 +7,14 @@ import {
   PersonSettingsIcon,
   PowerIcon,
   SettingsIcon,
-  SignOutIcon,
+  SignOutIcon
 } from '@/components/icons'
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from '@/ui/dropdown-menu'
 
 const Footer = () => {
@@ -23,9 +22,12 @@ const Footer = () => {
     <div className='flex h-16 w-full items-center justify-between border-t border-divider px-[52px]'>
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
-          <button className='flex items-center justify-center gap-3 rounded-[3px] px-3 py-1 transition-colors duration-150 hover:bg-white/70'>
+          <button
+            className='flex items-center justify-center gap-3 rounded-[3px] px-3 py-1 transition-colors duration-150 hover:bg-white/70'
+            type='button'
+          >
             <Image
-              src='https://honghong.me/static/images/avatar.png'
+              src='https://honghong.me/images/avatar.png'
               className='rounded-full'
               width={32}
               height={32}
@@ -52,7 +54,10 @@ const Footer = () => {
       </DropdownMenu>
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
-          <button className='flex h-10 w-10 items-center justify-center rounded-[3px] transition-colors duration-150 hover:bg-white/70'>
+          <button
+            className='flex h-10 w-10 items-center justify-center rounded-[3px] transition-colors duration-150 hover:bg-white/70'
+            type='button'
+          >
             <PowerIcon />
           </button>
         </DropdownMenuTrigger>

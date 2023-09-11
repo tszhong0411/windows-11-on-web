@@ -5,7 +5,7 @@ import {
   KeyboardSensor,
   PointerSensor,
   useSensor,
-  useSensors,
+  useSensors
 } from '@dnd-kit/core'
 import { restrictToHorizontalAxis } from '@dnd-kit/modifiers'
 import {
@@ -13,7 +13,7 @@ import {
   horizontalListSortingStrategy,
   SortableContext,
   sortableKeyboardCoordinates,
-  useSortable,
+  useSortable
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import React from 'react'
@@ -33,7 +33,7 @@ type Context = {
 const SortableItemContext = React.createContext<Context>({
   attributes: {},
   listeners: undefined,
-  ref() {},
+  ref: () => null
 })
 
 export type TaskbarApp = {
@@ -53,24 +53,24 @@ const Apps = () => {
       id: 'start',
       onClick: () => setOpen(!open),
       active: open,
-      'data-id': 'start',
+      'data-id': 'start'
     },
     { name: 'Search', tooltip: 'Search', id: 'search' },
     { name: 'Task View', id: 'task-view' },
-    { name: 'Chat', tooltip: 'Chat', id: 'chat' },
+    { name: 'Chat', tooltip: 'Chat', id: 'chat' }
   ]
 
   const taskbarApps: TaskbarApp[] = [
     { name: 'File Explorer', tooltip: 'File Explorer', id: 'explorer' },
     { name: 'Google Chrome', tooltip: 'Google Chrome', id: 'chrome' },
-    { name: 'Microsoft Store', tooltip: 'Microsoft Store', id: 'store' },
+    { name: 'Microsoft Store', tooltip: 'Microsoft Store', id: 'store' }
   ]
 
   const [apps, setApps] = useLocalStorage('taskbar', taskbarApps)
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
+      coordinateGetter: sortableKeyboardCoordinates
     })
   )
 
@@ -98,7 +98,7 @@ const Apps = () => {
           <div
             className='relative flex items-center gap-1'
             style={{
-              paddingRight: `calc(40px * ${apps.length} + 4px * ${apps.length})`,
+              paddingRight: `calc(40px * ${apps.length} + 4px * ${apps.length})`
             }}
           >
             {nonDraggableApps.map((app) => {
@@ -106,7 +106,7 @@ const Apps = () => {
 
               return <App key={id} id={id} {...rest} />
             })}
-            <div className='absolute bottom-0 right-0 top-0 flex items-center gap-1 overflow-hidden'>
+            <div className='absolute inset-y-0 right-0 flex items-center gap-1 overflow-hidden'>
               {apps.map((app, index) => {
                 const { id, ...rest } = app
 
@@ -144,13 +144,13 @@ const DraggableApp = (props: DraggableAppProps) => {
     setActivatorNodeRef,
     transform,
     transition,
-    isDragging,
+    isDragging
   } = useSortable({ id })
   const context = React.useMemo(
     () => ({
       attributes,
       listeners,
-      ref: setActivatorNodeRef,
+      ref: setActivatorNodeRef
     }),
     [attributes, listeners, setActivatorNodeRef]
   )
@@ -159,20 +159,26 @@ const DraggableApp = (props: DraggableAppProps) => {
   const maximumLimit = containerWidth - ((index + 1) * 40 + index * 4)
   const minimumLimit = index * 40 * -1 + index * 4 * -1
 
+  let x = 0
+
+  if (transform) {
+    if (transform.x > maximumLimit) {
+      x = maximumLimit
+    } else if (transform.x < minimumLimit) {
+      x = minimumLimit
+    } else {
+      x = transform.x
+    }
+  }
+
   const style: React.CSSProperties = {
     transform: CSS.Translate.toString({
-      x: transform
-        ? transform.x > maximumLimit
-          ? maximumLimit
-          : transform.x < minimumLimit
-          ? minimumLimit
-          : transform.x
-        : 0,
+      x,
       y: transform ? transform.y : 0,
       scaleX: transform ? transform.scaleX : 1,
-      scaleY: transform ? transform.scaleY : 1,
+      scaleY: transform ? transform.scaleY : 1
     }),
-    transition,
+    transition
   }
 
   return (

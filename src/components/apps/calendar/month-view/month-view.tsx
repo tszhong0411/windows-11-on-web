@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 
 import { useCalendar } from '@/hooks'
 
+import { variants } from '../calendar'
 import Days from './days'
 import Weekdays from './weekdays'
-import { variants } from '../calendar'
 
 const MonthView = () => {
   const { drill } = useCalendar()

@@ -2,16 +2,15 @@
 
 import { cx } from '@tszhong0411/utils'
 import React from 'react'
-import { Rnd } from 'react-rnd'
 
-import { sizes } from '@/lib/constants'
+// import { Rnd } from 'react-rnd'
 import { useSelection, useSettings } from '@/hooks'
-
+import { sizes } from '@/lib/constants'
 import StyledSelection from '@/ui/selection'
 
+// import { ChromeCloseIcon, SquareIcon, SubtractIcon } from '../icons'
 import App from './app'
 import ContextMenu from './context-menu'
-import { ChromeCloseIcon, SquareIcon, SubtractIcon } from '../icons'
 
 type WallpaperProps = {
   children: React.ReactNode
@@ -43,15 +42,15 @@ const Desktop = (props: WallpaperProps) => {
             gridTemplateRows: `repeat(auto-fill, ${
               sizes.desktop[desktop.iconSize].iconContainer.height
             }px)`,
-            rowGap: sizes.desktop[desktop.iconSize].rowGap,
+            rowGap: sizes.desktop[desktop.iconSize].rowGap
           }}
           ref={ref}
-          onClick={() => setFocused(undefined)}
+          onClick={() => setFocused(-1)}
           {...selectionEvents}
         >
           {/* Apps / Shortcuts */}
           {desktop.showDesktopIcons &&
-            Array.from(Array(10).keys()).map((_, i) => (
+            [...Array.from({ length: 10 }).keys()].map((_, i) => (
               <App
                 key={_}
                 onClick={(e) => {
@@ -66,12 +65,12 @@ const Desktop = (props: WallpaperProps) => {
           {isSelecting && <StyledSelection style={selectionStyle} />}
         </div>
       </ContextMenu>
-      <Rnd
+      {/* <Rnd
         default={{
           x: 0,
           y: 0,
           width: 200,
-          height: 200,
+          height: 200
         }}
         className='z-[1000] select-none rounded-[7px] border border-[--surface-stroke-default]'
         enableUserSelectHack={false}
@@ -84,7 +83,7 @@ const Desktop = (props: WallpaperProps) => {
           right: '!cursor-ew-resize',
           top: '!cursor-ns-resize',
           topLeft: '!cursor-nwse-resize',
-          topRight: '!cursor-nesw-resize',
+          topRight: '!cursor-nesw-resize'
         }}
         minHeight={32}
         minWidth={145}
@@ -92,13 +91,22 @@ const Desktop = (props: WallpaperProps) => {
         <div className='mica flex h-8 w-full justify-end rounded-t-[7px]'>
           <div className='handle w-full' />
           <div className='flex'>
-            <button className='flex h-8 w-[46px] cursor-default items-center justify-center hover:bg-[--subtle-secondary]'>
+            <button
+              className='flex h-8 w-[46px] cursor-default items-center justify-center hover:bg-[--subtle-secondary]'
+              type='button'
+            >
               <SubtractIcon width={10} height={10} />
             </button>
-            <button className='flex h-8 w-[46px] cursor-default items-center justify-center hover:bg-[--subtle-secondary]'>
+            <button
+              className='flex h-8 w-[46px] cursor-default items-center justify-center hover:bg-[--subtle-secondary]'
+              type='button'
+            >
               <SquareIcon width={10} height={10} />
             </button>
-            <button className='group flex h-8 w-[46px] cursor-default items-center justify-center rounded-tr-[7px] hover:bg-[#c42b1c]'>
+            <button
+              className='group flex h-8 w-[46px] cursor-default items-center justify-center rounded-tr-[7px] hover:bg-[#c42b1c]'
+              type='button'
+            >
               <ChromeCloseIcon
                 width={10}
                 height={10}
@@ -107,8 +115,8 @@ const Desktop = (props: WallpaperProps) => {
             </button>
           </div>
         </div>
-        <div className='h-[calc(100%-32px)] w-full rounded-b-[7px]'></div>
-      </Rnd>
+        <div className='h-[calc(100%-32px)] w-full rounded-b-[7px]' />
+      </Rnd> */}
       {children}
     </>
   )

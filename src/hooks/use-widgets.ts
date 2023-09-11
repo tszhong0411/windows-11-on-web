@@ -1,18 +1,11 @@
 import { create } from 'zustand'
 
-type WidgetsStates = {
+type WidgetsStore = {
+  setOpen: (open: boolean) => void
   open: boolean
 }
 
-const initialStates: WidgetsStates = {
+export const useWidgets = create<WidgetsStore>()((set) => ({
   open: false,
-}
-
-type WidgetsActions = {
-  setOpen: (open: boolean) => void
-}
-
-export const useWidgets = create<WidgetsStates & WidgetsActions>()((set) => ({
-  ...initialStates,
-  setOpen: (open) => set({ open }),
+  setOpen: (open) => set({ open })
 }))

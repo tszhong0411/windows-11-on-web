@@ -5,7 +5,6 @@ import dayjs from 'dayjs'
 import React from 'react'
 
 import { useCalendar, useQuickSettings, useSettings } from '@/hooks'
-
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/ui/tooltip'
 import { getVolumeLevel } from '@/utils'
 
@@ -16,7 +15,7 @@ import {
   Volume1Icon,
   Volume2Icon,
   Volume3Icon,
-  WifiIcon,
+  WifiIcon
 } from '../icons'
 const SystemTray = () => {
   return (
@@ -45,16 +44,21 @@ const QuickSettings = () => {
 
   const VolumeIcon = (props: React.SVGAttributes<SVGElement>) => {
     switch (getVolumeLevel(volume)) {
-      case 0:
+      case 0: {
         return <Volume0Icon {...props} />
-      case 1:
+      }
+      case 1: {
         return <Volume1Icon {...props} />
-      case 2:
+      }
+      case 2: {
         return <Volume2Icon {...props} />
-      case 3:
+      }
+      case 3: {
         return <Volume3Icon {...props} />
-      default:
+      }
+      default: {
         return null
+      }
     }
   }
 
@@ -66,6 +70,7 @@ const QuickSettings = () => {
       )}
       onClick={() => setOpen(!open)}
       data-id='quick-settings'
+      type='button'
     >
       {/* Network */}
       <Tooltip delayDuration={1000}>
@@ -139,6 +144,7 @@ const Clock = () => {
             open && 'bg-white/70'
           )}
           data-id='calendar'
+          type='button'
         >
           <div>{dayjs(time).format('h:mm A')}</div>
           <div>{dayjs(time).format('M/D/YYYY')}</div>
@@ -160,7 +166,7 @@ const ShowDesktop = () => {
             'relative ml-[3px] h-12 w-1.5',
             'hover:before:absolute hover:before:left-0 hover:before:top-1/2 hover:before:block hover:before:h-4 hover:before:w-px hover:before:-translate-y-1/2 hover:before:bg-[#7c8389]'
           )}
-        ></div>
+        />
       </TooltipTrigger>
       <TooltipContent sideOffset={12}>
         <span>Show desktop</span>

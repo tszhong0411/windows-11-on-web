@@ -3,14 +3,13 @@
 import React from 'react'
 import { useKey } from 'react-use'
 
-import { useStartMenu } from '@/hooks'
-
 import Calendar from '@/components/apps/calendar'
 import QuickSettings from '@/components/apps/quick-settings'
 import StartMenu from '@/components/apps/start-menu'
 import Widgets from '@/components/apps/widgets'
 import Desktop from '@/components/desktop'
 import Taskbar from '@/components/taskbar'
+import { useStartMenu } from '@/hooks'
 
 const Home = () => {
   const [isMounted, setIsMounted] = React.useState(false)

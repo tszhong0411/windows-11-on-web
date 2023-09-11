@@ -9,7 +9,7 @@ const App = (props: AppProps) => {
     <div className='flex h-10 items-center gap-5 rounded px-3 transition-colors duration-150 hover:bg-white/70'>
       <div>
         <Image
-          src={`/static/images/apps/${id}/icon.png`}
+          src={`/images/apps/${id}/icon.png`}
           width={24}
           height={24}
           draggable={false}

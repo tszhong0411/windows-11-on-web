@@ -5,8 +5,8 @@ const Recommended = () => {
     {
       name: 'Get Started',
       description: 'Welcome to Windows',
-      icon: '/static/images/apps/get-started/icon.png',
-    },
+      icon: '/images/apps/get-started/icon.png'
+    }
   ]
 
   return (

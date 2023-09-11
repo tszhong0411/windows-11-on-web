@@ -1,7 +1,5 @@
-import { useStartMenu } from '@/hooks'
-
 import { ChevronRightIcon } from '@/components/icons'
-
+import { useStartMenu } from '@/hooks'
 import Button from '@/ui/button'
 
 import PinnedApp, { AppProps } from './pinned-app'
@@ -12,44 +10,44 @@ const Pinned = () => {
     {
       name: 'Edge',
       id: 'edge',
-      tooltip: 'Microsoft Edge',
+      tooltip: 'Microsoft Edge'
     },
     {
       name: 'Mail',
-      id: 'mail',
+      id: 'mail'
     },
     {
       name: 'Calendar',
-      id: 'calendar',
+      id: 'calendar'
     },
     {
       name: 'Microsoft Store',
-      id: 'store',
+      id: 'store'
     },
     {
       name: 'Photos',
-      id: 'photos',
+      id: 'photos'
     },
     {
       name: 'Settings',
-      id: 'settings',
+      id: 'settings'
     },
     {
       name: 'Office',
-      id: 'office',
+      id: 'office'
     },
     {
       name: 'Solitaire & Casual Games',
-      id: 'solitaire',
+      id: 'solitaire'
     },
     {
       name: 'Microsoft Clipchamp',
-      id: 'clipchamp',
+      id: 'clipchamp'
     },
     {
       name: 'Calculator',
-      id: 'calculator',
-    },
+      id: 'calculator'
+    }
   ]
 
   return (

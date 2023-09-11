@@ -1,15 +1,14 @@
 'use client'
 
-import { useSettings } from '@/hooks'
-
 import {
   AirplaneIcon,
   BluetoothIcon,
   NightLightActiveIcon,
   NightLightIcon,
   ShareIcon,
-  WifiIcon,
+  WifiIcon
 } from '@/components/icons'
+import { useSettings } from '@/hooks'
 
 import Toggle from './toggle'
 
@@ -24,7 +23,7 @@ const Toggles = () => {
     nightLight,
     setNightLight,
     nearbySharing,
-    setNearbySharing,
+    setNearbySharing
   } = useSettings()
 
   return (

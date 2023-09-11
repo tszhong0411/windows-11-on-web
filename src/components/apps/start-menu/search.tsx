@@ -10,7 +10,7 @@ const Search = () => {
         />
       </div>
       <Image
-        src='/static/images/apps/search/icon.png'
+        src='/images/apps/search/icon.png'
         className='absolute left-[17px] top-1/2 -translate-y-1/2'
         width={13}
         height={13}

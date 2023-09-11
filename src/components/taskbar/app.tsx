@@ -35,10 +35,11 @@ const App = React.forwardRef<HTMLButtonElement, AppProps>((props, ref) => {
             'before:absolute before:inset-0 before:-z-10 before:-m-px before:rounded-[inherit] before:opacity-30'
           )}
           ref={ref}
+          type='button'
           {...rest}
         >
           <Image
-            src={`/static/images/apps/${id}/icon.png`}
+            src={`/images/apps/${id}/icon.png`}
             className={cx(
               'select-none transition-transform duration-300',
               !isDragging && 'group-active:scale-75',

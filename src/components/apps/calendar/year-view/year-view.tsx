@@ -2,12 +2,11 @@ import dayjs, { Dayjs } from 'dayjs'
 import { motion } from 'framer-motion'
 
 import { useCalendar } from '@/hooks'
-
 import { range } from '@/utils'
 
-import Month from './month'
 import { variants } from '../calendar'
 import { getMaxDate } from '../utils'
+import Month from './month'
 
 const YearView = () => {
   const { date, setDate, setView, drill, setDrill } = useCalendar()
@@ -36,13 +35,13 @@ const YearView = () => {
       exit={`${drill}Exit`}
       className='flex flex-wrap gap-x-5 gap-y-2.5 px-2'
     >
-      {months.map((date) => (
+      {months.map((d) => (
         <Month
-          key={date.valueOf()}
-          date={date}
-          isInYear={date.year() === year}
+          key={d.valueOf()}
+          date={d}
+          isInYear={d.year() === year}
           onClick={() => {
-            setDate(day.set('year', date.year()).set('month', date.month()))
+            setDate(day.set('year', d.year()).set('month', d.month()))
             setDrill('up')
             setView('month')
           }}

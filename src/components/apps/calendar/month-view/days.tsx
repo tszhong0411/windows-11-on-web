@@ -2,7 +2,6 @@ import dayjs, { Dayjs } from 'dayjs'
 import React from 'react'
 
 import { useCalendar } from '@/hooks'
-
 import { range } from '@/utils'
 
 import Day from './day'
@@ -24,32 +23,29 @@ const Days = () => {
   const days: Dayjs[] = []
 
   // Previous month (outside of current month)
-  range(weekdayOfFirstDay).forEach((i) => {
+  for (const i of range(weekdayOfFirstDay)) {
     days.push(firstDay.subtract(weekdayOfFirstDay - i, 'day'))
-  })
+  }
 
   // Current month
-  range(daysInMonth).forEach((i) =>
+  for (const i of range(daysInMonth))
     days.push(dayjs(`${year}-${month}-${i + 1}`))
-  )
 
   // Next month (outside of current month, fixed weeks)
-  range(7 * 6 - days.length).forEach((i) => {
+  for (const i of range(7 * 6 - days.length)) {
     days.push(lastDay.add(i + 1, 'day'))
-  })
+  }
 
   return (
     <div className='flex flex-wrap gap-x-1.5 gap-y-px'>
-      {days.map((date) => (
+      {days.map((d) => (
         <Day
-          key={date.valueOf()}
-          date={date}
-          isInMonth={date.year() === year && date.month() + 1 === month}
-          selected={selected?.valueOf() === date.valueOf()}
+          key={d.valueOf()}
+          date={d}
+          isInMonth={d.year() === year && d.month() + 1 === month}
+          selected={selected?.valueOf() === d.valueOf()}
           onClick={() =>
-            setSelected((prev) =>
-              prev?.valueOf() === date.valueOf() ? null : date
-            )
+            setSelected((prev) => (prev?.valueOf() === d.valueOf() ? null : d))
           }
         />
       ))}

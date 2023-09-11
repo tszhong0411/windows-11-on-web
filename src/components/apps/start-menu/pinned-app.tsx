@@ -16,7 +16,7 @@ const PinnedApp = (props: AppProps) => {
       <TooltipTrigger asChild>
         <div className='flex h-[84px] w-24 flex-col items-center justify-center gap-1 rounded px-1 transition-colors duration-150 hover:bg-white/70'>
           <Image
-            src={`/static/images/apps/${id}/icon.png`}
+            src={`/images/apps/${id}/icon.png`}
             width={32}
             height={32}
             draggable={false}

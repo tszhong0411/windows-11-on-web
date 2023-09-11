@@ -2,16 +2,14 @@
 
 import React from 'react'
 
-import { useSettings } from '@/hooks'
-
 import {
   MutedIcon,
   Volume0Icon,
   Volume1Icon,
   Volume2Icon,
-  Volume3Icon,
+  Volume3Icon
 } from '@/components/icons'
-
+import { useSettings } from '@/hooks'
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack } from '@/ui/slider'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/ui/tooltip'
 import { getVolumeLevel } from '@/utils'
@@ -38,28 +36,32 @@ const Volume = () => {
   }, [setVolumeTooltipOpened])
 
   React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => window.clearTimeout(openTimerRef.current)
   }, [])
 
   const playSound = () => {
-    const sound = new Audio('/static/sounds/volume_adjust.mp3')
+    const sound = new Audio('/sounds/volume_adjust.mp3')
     sound.volume = volume / 100
-    sound.play()
+    void sound.play()
   }
 
   const VolumeIcon = (props: React.SVGAttributes<SVGElement>) => {
     switch (getVolumeLevel(volume)) {
-      case 0:
+      case 0: {
         return <Volume0Icon {...props} />
-      case 1:
+      }
+      case 1: {
         return <Volume1Icon {...props} />
-      case 2:
+      }
+      case 2: {
         return <Volume2Icon {...props} />
-      case 3:
+      }
+      case 3: {
         return <Volume3Icon {...props} />
-      default:
+      }
+      default: {
         return null
+      }
     }
   }
 
@@ -73,6 +75,7 @@ const Volume = () => {
             <button
               className='flex h-10 w-10 shrink-0 cursor-default items-center justify-center rounded hover:bg-[--subtle-secondary]'
               onClick={() => setMuted(!muted)}
+              type='button'
             >
               {muted ? (
                 <MutedIcon width={14} height={14} />

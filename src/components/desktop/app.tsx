@@ -2,8 +2,8 @@ import { cx } from '@tszhong0411/utils'
 import Image from 'next/image'
 import React from 'react'
 
-import { sizes } from '@/lib/constants'
 import { useSettings } from '@/hooks'
+import { sizes } from '@/lib/constants'
 
 type AppProps = {
   focused: boolean
@@ -23,12 +23,12 @@ const App = (props: AppProps) => {
       )}
       style={{
         width: sizes.desktop[desktop.iconSize].iconContainer.width,
-        height: sizes.desktop[desktop.iconSize].iconContainer.height,
+        height: sizes.desktop[desktop.iconSize].iconContainer.height
       }}
       {...rest}
     >
       <Image
-        src='/static/images/apps/recycle-bin/icon.png'
+        src='/images/apps/recycle-bin/icon.png'
         width={sizes.desktop[desktop.iconSize].icon}
         height={sizes.desktop[desktop.iconSize].icon}
         quality={100}

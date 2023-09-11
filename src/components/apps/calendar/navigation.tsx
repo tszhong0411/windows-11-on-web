@@ -1,9 +1,8 @@
 import { cx } from '@tszhong0411/utils'
 import dayjs from 'dayjs'
 
-import { useCalendar } from '@/hooks'
-
 import { CaretDownFilledIcon, CaretUpFilledIcon } from '@/components/icons'
+import { useCalendar } from '@/hooks'
 
 import { getMaxDate, getMinDate } from './utils'
 
@@ -64,6 +63,7 @@ const Navigation = () => {
             'hover:bg-[--subtle-secondary] active:bg-[rgba(0,0,0,0.0241)] active:text-[--text-secondary]'
         )}
         onClick={navigateHandler}
+        type='button'
       >
         {view === 'month' && dayjs(date).format('MMMM YYYY')}
         {view === 'year' && dayjs(date).format('YYYY')}
@@ -78,6 +78,7 @@ const Navigation = () => {
           )}
           onClick={subtractHandler}
           disabled={isMinDecade || isMinYear || isMinMonth}
+          type='button'
         >
           <CaretUpFilledIcon
             width={8}
@@ -93,6 +94,7 @@ const Navigation = () => {
           )}
           onClick={addHandler}
           disabled={isMaxDecade || isMaxYear || isMaxMonth}
+          type='button'
         >
           <CaretDownFilledIcon
             width={8}

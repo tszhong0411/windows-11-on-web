@@ -2,7 +2,7 @@ import React from 'react'
 
 export const useClickOutside = <T extends HTMLElement>(
   fn: () => void,
-  nodes?: (HTMLElement | null)[]
+  nodes?: Array<HTMLElement | null>
 ) => {
   const ref = React.useRef<T | null>(null)
 

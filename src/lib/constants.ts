@@ -4,25 +4,25 @@ export const sizes = {
       icon: 96,
       iconContainer: {
         width: 112,
-        height: 118,
+        height: 118
       },
-      rowGap: 31,
+      rowGap: 31
     },
     'medium-icons': {
       icon: 48,
       iconContainer: {
         width: 78,
-        height: 70,
+        height: 70
       },
-      rowGap: 28,
+      rowGap: 28
     },
     'small-icons': {
       icon: 32,
       iconContainer: {
         width: 78,
-        height: 54,
+        height: 54
       },
-      rowGap: 31,
-    },
-  },
+      rowGap: 31
+    }
+  }
 }

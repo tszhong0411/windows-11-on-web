@@ -1,8 +1,7 @@
 'use client'
 
 import { cx } from '@tszhong0411/utils'
-import { AnimatePresence, Variants } from 'framer-motion'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion, Variants } from 'framer-motion'
 import React from 'react'
 import { useKey } from 'react-use'
 
@@ -18,24 +17,24 @@ import YearView from './year-view'
 export const variants: Variants = {
   upInitial: {
     scale: 0.9,
-    opacity: 0,
+    opacity: 0
   },
   downInitial: {
     scale: 1.2,
-    opacity: 0,
+    opacity: 0
   },
   animate: {
     scale: 1,
-    opacity: 1,
+    opacity: 1
   },
   upExit: {
     scale: 1.2,
-    opacity: 0,
+    opacity: 0
   },
   downExit: {
     scale: 0.9,
-    opacity: 0,
-  },
+    opacity: 0
+  }
 }
 
 const Calendar = () => {
@@ -54,16 +53,16 @@ const Calendar = () => {
       {open && (
         <motion.div
           initial={{
-            transform: 'translateX(calc(100% + 48px))',
+            transform: 'translateX(calc(100% + 48px))'
           }}
           animate={{
-            transform: 'translateX(0%)',
+            transform: 'translateX(0%)'
           }}
           exit={{
-            transform: 'translateX(calc(100% + 48px))',
+            transform: 'translateX(calc(100% + 48px))'
           }}
           transition={{
-            duration: 0.1,
+            duration: 0.1
           }}
           className={cx(
             'acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-[9000] w-[334px] select-none rounded-lg border border-shell shadow-flyout'

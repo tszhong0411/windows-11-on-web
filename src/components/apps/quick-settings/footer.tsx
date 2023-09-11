@@ -1,5 +1,4 @@
 import { EditIcon, SettingsIcon } from '@/components/icons'
-
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/ui/tooltip'
 
 const Footer = () => {
@@ -9,7 +8,10 @@ const Footer = () => {
         {/* Edit quick settings */}
         <Tooltip>
           <TooltipTrigger asChild>
-            <button className='flex h-10 w-9 items-center justify-center rounded hover:bg-[--subtle-secondary]'>
+            <button
+              className='flex h-10 w-9 items-center justify-center rounded hover:bg-[--subtle-secondary]'
+              type='button'
+            >
               <EditIcon width={16} height={16} />
             </button>
           </TooltipTrigger>
@@ -18,7 +20,10 @@ const Footer = () => {
         {/* All settings */}
         <Tooltip>
           <TooltipTrigger asChild>
-            <button className='flex h-10 w-9 cursor-default items-center justify-center rounded hover:bg-[--subtle-secondary]'>
+            <button
+              className='flex h-10 w-9 cursor-default items-center justify-center rounded hover:bg-[--subtle-secondary]'
+              type='button'
+            >
               <SettingsIcon width={16} height={16} />
             </button>
           </TooltipTrigger>

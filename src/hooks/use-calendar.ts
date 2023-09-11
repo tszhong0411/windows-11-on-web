@@ -12,7 +12,7 @@ const initialStates: CalendarStates = {
   open: false,
   view: 'month',
   date: dayjs(),
-  drill: 'down',
+  drill: 'down'
 }
 
 type CalendarActions = {
@@ -37,6 +37,6 @@ export const useCalendar = create<CalendarStates & CalendarActions>()(
     },
     setView: (view) => set({ view }),
     setDate: (date) => set({ date }),
-    setDrill: (drill) => set({ drill }),
+    setDrill: (drill) => set({ drill })
   })
 )

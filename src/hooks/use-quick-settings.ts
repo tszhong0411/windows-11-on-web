@@ -5,7 +5,7 @@ type QuickSettingsStates = {
 }
 
 const initialStates: QuickSettingsStates = {
-  open: false,
+  open: false
 }
 
 type QuickSettingsActions = {
@@ -16,5 +16,5 @@ export const useQuickSettings = create<
   QuickSettingsStates & QuickSettingsActions
 >()((set) => ({
   ...initialStates,
-  setOpen: (open) => set({ open }),
+  setOpen: (open) => set({ open })
 }))

@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React from 'react'
 
 import { useSettings } from '@/hooks'
-
 import {
   ContextMenu as UIContextMenu,
   ContextMenuCheckboxItem,
@@ -16,7 +15,7 @@ import {
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
-  ContextMenuTrigger,
+  ContextMenuTrigger
 } from '@/ui/context-menu'
 
 import {
@@ -30,7 +29,7 @@ import {
   PersonalizeIcon,
   ShowDesktopIconsIcon,
   ShowMoreOptionsIcon,
-  SortByIcon,
+  SortByIcon
 } from '../icons'
 import { GridIcon } from '../icons/grid'
 
@@ -81,7 +80,7 @@ const View = () => {
                 iconSize: value as
                   | 'large-icons'
                   | 'medium-icons'
-                  | 'small-icons',
+                  | 'small-icons'
               })
             }
           >
@@ -106,7 +105,7 @@ const View = () => {
             onCheckedChange={(value) => {
               setDesktop({
                 ...desktop,
-                autoArrangeIcons: value,
+                autoArrangeIcons: value
               })
             }}
             disabled={!desktop.showDesktopIcons}
@@ -119,7 +118,7 @@ const View = () => {
             onCheckedChange={(value) => {
               setDesktop({
                 ...desktop,
-                alignIconsToGrid: value,
+                alignIconsToGrid: value
               })
             }}
             disabled={!desktop.showDesktopIcons}
@@ -133,7 +132,7 @@ const View = () => {
             onCheckedChange={(value) => {
               setDesktop({
                 ...desktop,
-                showDesktopIcons: value,
+                showDesktopIcons: value
               })
             }}
           >
@@ -185,7 +184,7 @@ const New = () => {
         <ContextMenuSubContent>
           <ContextMenuItem>
             <Image
-              src='/static/images/icons/folder.png'
+              src='/images/icons/folder.png'
               className='mr-3'
               width={18}
               height={18}
@@ -197,7 +196,7 @@ const New = () => {
           </ContextMenuItem>
           <ContextMenuItem>
             <Image
-              src='/static/images/icons/shortcut.png'
+              src='/images/icons/shortcut.png'
               className='mr-3'
               width={18}
               height={18}
@@ -209,7 +208,7 @@ const New = () => {
           </ContextMenuItem>
           <ContextMenuItem>
             <Image
-              src='/static/images/icons/bitmap-image.png'
+              src='/images/icons/bitmap-image.png'
               className='mr-3'
               width={18}
               height={18}
@@ -221,7 +220,7 @@ const New = () => {
           </ContextMenuItem>
           <ContextMenuItem>
             <Image
-              src='/static/images/icons/text-document.png'
+              src='/images/icons/text-document.png'
               className='mr-3'
               width={18}
               height={18}
@@ -233,7 +232,7 @@ const New = () => {
           </ContextMenuItem>
           <ContextMenuItem>
             <Image
-              src='/static/images/icons/compressed-folder.png'
+              src='/images/icons/compressed-folder.png'
               className='mr-3'
               width={18}
               height={18}
@@ -271,7 +270,7 @@ const OpenInTerminal = () => {
   return (
     <ContextMenuItem>
       <Image
-        src='/static/images/apps/windows-terminal/icon.png'
+        src='/images/apps/windows-terminal/icon.png'
         width={14}
         height={14}
         className='mr-3'

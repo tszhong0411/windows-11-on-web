@@ -75,7 +75,7 @@ const SliderThumb = React.forwardRef<
           'group-hover:h-[15px] group-hover:w-[15px]',
           'group-active:h-2.5 group-active:w-2.5'
         )}
-      ></span>
+      />
     </SliderPrimitive.Thumb>
   )
 })

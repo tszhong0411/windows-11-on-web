@@ -2,11 +2,10 @@ import dayjs, { Dayjs } from 'dayjs'
 import { motion } from 'framer-motion'
 
 import { useCalendar } from '@/hooks'
-
 import { range } from '@/utils'
 
-import Year from './year'
 import { variants } from '../calendar'
+import Year from './year'
 
 const DecadeView = () => {
   const { date, setDate, setView, drill, setDrill } = useCalendar()
@@ -23,7 +22,7 @@ const DecadeView = () => {
 
   const shouldPush = (year: number) => year >= minYear && year <= maxYear
 
-  const years: Array<Dayjs> = []
+  const years: Dayjs[] = []
 
   const getYearRow = (year: number) => {
     const chunkSize = 4
@@ -31,18 +30,21 @@ const DecadeView = () => {
 
     for (let i = 0; i < yearArray.length; i += chunkSize) {
       const chunk = yearArray.slice(i, i + chunkSize)
-      const index = chunk.findIndex((e) => e === year)
+      const index = chunk.indexOf(year)
       if (index !== -1) return index
     }
 
-    return
+    return null
   }
 
-  getYearRow(decadeStartYear) &&
-    range(getYearRow(decadeStartYear) as number).map((i) => {
+  const yearRow = getYearRow(decadeStartYear)
+
+  if (typeof yearRow === 'number') {
+    range(yearRow).map((i) => {
       const year = decadeStartYear - i - 1
       shouldPush(year) && years.unshift(dayjs(`${year}-1-1`))
     })
+  }
 
   range(decadeStartYear, decadeEndYear + 1).map((year) => {
     shouldPush(year) && years.push(dayjs(`${year}-1-1`))
@@ -62,15 +64,13 @@ const DecadeView = () => {
       exit={`${drill}Exit`}
       className='flex flex-wrap gap-x-5 gap-y-2.5 px-2'
     >
-      {years.map((date) => (
+      {years.map((d) => (
         <Year
-          key={date.valueOf()}
-          date={date}
-          isInDecade={
-            date.year() >= decadeStartYear && date.year() <= decadeEndYear
-          }
+          key={d.valueOf()}
+          date={d}
+          isInDecade={d.year() >= decadeStartYear && d.year() <= decadeEndYear}
           onClick={() => {
-            setDate(day.set('year', date.year()).set('month', date.month()))
+            setDate(day.set('year', d.year()).set('month', d.month()))
             setDrill('up')
             setView('year')
           }}

@@ -16,7 +16,7 @@ export const useSelection = (
     end: Position | null
   }>({
     start: null,
-    end: null,
+    end: null
   })
 
   const mouseDownHandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -27,9 +27,9 @@ export const useSelection = (
     setPosition({
       start: {
         x: e.clientX,
-        y: e.clientY,
+        y: e.clientY
       },
-      end: null,
+      end: null
     })
   }
 
@@ -41,8 +41,8 @@ export const useSelection = (
         ...prev,
         end: {
           x: e.clientX,
-          y: e.clientY,
-        },
+          y: e.clientY
+        }
       }))
       // Prevent "Maximum update depth exceeded"
       debounceTimer.current = window.setTimeout(() => {
@@ -57,18 +57,18 @@ export const useSelection = (
     setIsSelecting(false)
     setPosition({
       start: null,
-      end: null,
+      end: null
     })
   }
 
   const selectionStyle = React.useMemo(() => {
-    if (!position.start || !position.end) return undefined
+    if (!position.start || !position.end) return
 
     return {
       width: Math.abs(position.end.x - position.start.x),
       height: Math.abs(position.end.y - position.start.y),
       left: Math.min(position.start.x, position.end.x),
-      top: Math.min(position.start.y, position.end.y),
+      top: Math.min(position.start.y, position.end.y)
     }
   }, [position])
 
@@ -77,8 +77,8 @@ export const useSelection = (
     selectionEvents: {
       onMouseDown: mouseDownHandler,
       onMouseMove: mouseMoveHandler,
-      onMouseUp: mouseUpHandler,
+      onMouseUp: mouseUpHandler
     },
-    selectionStyle,
+    selectionStyle
   }
 }

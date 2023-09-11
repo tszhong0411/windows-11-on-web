@@ -1,14 +1,15 @@
 import { cx } from '@tszhong0411/utils'
 import type { Metadata } from 'next'
 import localfont from 'next/font/local'
+
 import '@/styles/globals.css'
 
 import Providers from './providers'
 
 const segoeUI = localfont({
-  src: '../../public/static/fonts/segoe-ui.ttf',
+  src: '../../public/fonts/segoe-ui.ttf',
   variable: '--font-segoe-ui',
-  display: 'swap',
+  display: 'swap'
 })
 
 type RootLayoutProps = {
@@ -17,7 +18,7 @@ type RootLayoutProps = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://win11.honghong.me'),
-  title: 'Windows 11 on web',
+  title: 'Windows 11 on web'
 }
 
 const RootLayout = (props: RootLayoutProps) => {
@@ -31,7 +32,7 @@ const RootLayout = (props: RootLayoutProps) => {
       <body
         className='min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat font-default'
         style={{
-          backgroundImage: 'url(/static/images/wallpaper.jpg)',
+          backgroundImage: 'url(/images/wallpaper.jpg)'
         }}
       >
         <Providers>{children}</Providers>
