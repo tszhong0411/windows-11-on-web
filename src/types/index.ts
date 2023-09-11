@@ -1,1 +1,1 @@
-export { App } from './app'
+export type { App } from './app'
