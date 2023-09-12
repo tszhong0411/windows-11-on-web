@@ -13,13 +13,11 @@ export const range = (start: number, end?: number, step = 1) => {
   }
 
   const size = Math.max(Math.ceil((end - start) / step), 0)
-  const result: number[] = Array.from({ length: size })
+  const result = new Map<number, number>()
 
   for (let i = 0; i < size; i++) {
-    // TODO: Fix this
-    // eslint-disable-next-line security/detect-object-injection
-    result[i] = start + i * step
+    result.set(i, start + i * step)
   }
 
-  return result
+  return [...result.values()]
 }
