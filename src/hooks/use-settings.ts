@@ -129,10 +129,11 @@ export const useSettings = create<SettingsStates & SettingsActions>()(
     }),
     {
       name: 'settings',
-      // eslint-disable-next-line unicorn/consistent-function-scoping
-      onRehydrateStorage: () => (state) => {
-        if (state?.nightLight) {
-          document.body.dataset.nightLight = 'true'
+      onRehydrateStorage: () => {
+        return (state) => {
+          if (state?.nightLight) {
+            document.body.dataset.nightLight = 'true'
+          }
         }
       }
     }
