@@ -6,7 +6,7 @@ import React from 'react'
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/ui/tooltip'
 
-import { TaskbarApp } from './apps'
+import { type TaskbarApp } from './apps'
 
 type AppProps = {
   isDragging?: boolean

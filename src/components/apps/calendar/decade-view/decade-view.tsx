@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs, { type Dayjs } from 'dayjs'
 import { motion } from 'framer-motion'
 
 import { useCalendar } from '@/hooks'

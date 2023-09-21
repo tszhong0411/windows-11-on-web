@@ -2,7 +2,7 @@ import { ChevronRightIcon } from '@/components/icons'
 import { useStartMenu } from '@/hooks'
 import Button from '@/ui/button'
 
-import PinnedApp, { AppProps } from './pinned-app'
+import PinnedApp, { type AppProps } from './pinned-app'
 
 const Pinned = () => {
   const { setAllApps } = useStartMenu()

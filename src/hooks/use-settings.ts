@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-import { App } from '@/types'
+import { type App } from '@/types'
 
 export type SettingsStates = {
   volume: number

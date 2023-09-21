@@ -1,5 +1,5 @@
 import { cx } from '@tszhong0411/utils'
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs, { type Dayjs } from 'dayjs'
 import isToday from 'dayjs/plugin/isToday'
 
 import Tile from '../tile'

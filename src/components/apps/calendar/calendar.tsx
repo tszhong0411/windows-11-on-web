@@ -1,7 +1,7 @@
 'use client'
 
 import { cx } from '@tszhong0411/utils'
-import { AnimatePresence, motion, Variants } from 'framer-motion'
+import { AnimatePresence, motion, type Variants } from 'framer-motion'
 import React from 'react'
 import { useKey } from 'react-use'
 

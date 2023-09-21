@@ -1,4 +1,4 @@
-import RecentFile, { RecentFileProps } from './recent-file'
+import RecentFile, { type RecentFileProps } from './recent-file'
 
 const Recommended = () => {
   const recentFiles: RecentFileProps[] = [

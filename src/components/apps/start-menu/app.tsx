@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { App as AppProps } from '@/types'
+import { type App as AppProps } from '@/types'
 
 const App = (props: AppProps) => {
   const { name, id } = props
