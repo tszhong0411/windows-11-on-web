@@ -1,22 +1,15 @@
 'use client'
 
-import { cx } from '@tszhong0411/utils'
+import { cn } from '@tszhong0411/utils'
 import dayjs from 'dayjs'
-import React from 'react'
+import { useEffect, useState } from 'react'
 
 import { useCalendar, useQuickSettings, useSettings } from '@/hooks'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/ui/tooltip'
-import { getVolumeLevel } from '@/utils'
 
-import {
-  MutedIcon,
-  NoWifiIcon,
-  Volume0Icon,
-  Volume1Icon,
-  Volume2Icon,
-  Volume3Icon,
-  WifiIcon
-} from '../icons'
+import { MutedIcon, NoWifiIcon, WifiIcon } from '../icons'
+import VolumeIcon from '../volume-icon'
+
 const SystemTray = () => {
   return (
     <div className='flex select-none items-center gap-[3px]'>
@@ -42,33 +35,15 @@ const QuickSettings = () => {
     }
   }
 
-  const VolumeIcon = (props: React.SVGAttributes<SVGElement>) => {
-    switch (getVolumeLevel(volume)) {
-      case 0: {
-        return <Volume0Icon {...props} />
-      }
-      case 1: {
-        return <Volume1Icon {...props} />
-      }
-      case 2: {
-        return <Volume2Icon {...props} />
-      }
-      case 3: {
-        return <Volume3Icon {...props} />
-      }
-      default: {
-        return null
-      }
-    }
-  }
-
   return (
     <button
-      className={cx(
+      className={cn(
         'flex cursor-default items-center gap-1.5 rounded px-2 text-right text-xs hover:bg-white/70',
         open && 'bg-white/70'
       )}
-      onClick={() => setOpen(!open)}
+      onClick={() => {
+        setOpen(!open)
+      }}
       data-id='quick-settings'
       type='button'
     >
@@ -76,11 +51,7 @@ const QuickSettings = () => {
       <Tooltip delayDuration={1000}>
         <TooltipTrigger asChild>
           <div className='flex h-10 items-center'>
-            {wifi ? (
-              <WifiIcon width={14} height={14} />
-            ) : (
-              <NoWifiIcon width={14} height={14} />
-            )}
+            {wifi ? <WifiIcon width={14} height={14} /> : <NoWifiIcon width={14} height={14} />}
           </div>
         </TooltipTrigger>
         <TooltipContent sideOffset={18}>
@@ -104,17 +75,12 @@ const QuickSettings = () => {
       <Tooltip delayDuration={1000}>
         <TooltipTrigger asChild>
           <div className='flex h-10 items-center' onWheel={adjustVolumeHandler}>
-            {muted ? (
-              <MutedIcon width={14} height={14} />
-            ) : (
-              <VolumeIcon width={14} height={14} />
-            )}
+            {muted ? <MutedIcon width={14} height={14} /> : <VolumeIcon width={14} height={14} />}
           </div>
         </TooltipTrigger>
         <TooltipContent sideOffset={18}>
           <span>
-            Speakers (High Definition Audio Device):{' '}
-            {volume === 0 ? 'Muted' : `${volume}%`}
+            Speakers (High Definition Audio Device): {volume === 0 ? 'Muted' : `${volume}%`}
           </span>
         </TooltipContent>
       </Tooltip>
@@ -124,23 +90,27 @@ const QuickSettings = () => {
 
 const Clock = () => {
   const { open, setOpen } = useCalendar()
-  const [time, setTime] = React.useState(new Date())
+  const [time, setTime] = useState(new Date())
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date())
     }, 1000)
 
-    return () => clearInterval(interval)
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
 
   return (
     <Tooltip delayDuration={1000}>
       <TooltipTrigger asChild>
         <button
-          onClick={() => setOpen(!open)}
-          className={cx(
-            'cursor-default rounded py-1 pl-2 pr-2 text-right text-xs hover:bg-white/70',
+          onClick={() => {
+            setOpen(!open)
+          }}
+          className={cn(
+            'cursor-default rounded px-2 py-1 text-right text-xs hover:bg-white/70',
             open && 'bg-white/70'
           )}
           data-id='calendar'
@@ -162,7 +132,7 @@ const ShowDesktop = () => {
     <Tooltip delayDuration={1000}>
       <TooltipTrigger asChild>
         <div
-          className={cx(
+          className={cn(
             'relative ml-[3px] h-12 w-1.5',
             'hover:before:absolute hover:before:left-0 hover:before:top-1/2 hover:before:block hover:before:h-4 hover:before:w-px hover:before:-translate-y-1/2 hover:before:bg-[#7c8389]'
           )}

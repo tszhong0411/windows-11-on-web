@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 
 import {
   ArrowCounterclockwiseIcon,
@@ -32,7 +31,7 @@ const Footer = () => {
               width={32}
               height={32}
               quality={100}
-              alt='User profile picture'
+              alt='User profile'
             />
             <div className='text-xs'>Hong</div>
           </button>
@@ -55,7 +54,7 @@ const Footer = () => {
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
           <button
-            className='flex h-10 w-10 items-center justify-center rounded-[3px] transition-colors duration-150 hover:bg-white/70'
+            className='flex size-10 items-center justify-center rounded-[3px] transition-colors duration-150 hover:bg-white/70'
             type='button'
           >
             <PowerIcon />
@@ -72,11 +71,7 @@ const Footer = () => {
             Shut down
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <ArrowCounterclockwiseIcon
-              width={16}
-              height={16}
-              className='mr-3'
-            />
+            <ArrowCounterclockwiseIcon width={16} height={16} className='mr-3' />
             Restart
           </DropdownMenuItem>
         </DropdownMenuContent>

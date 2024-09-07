@@ -1,5 +1,6 @@
 export { useCalendar } from './use-calendar'
 export { useClickOutside } from './use-click-outside'
+export { useIsMounted } from './use-is-mounted'
 export { useQuickSettings } from './use-quick-settings'
 export { useSelection } from './use-selection'
 export { useSettings } from './use-settings'

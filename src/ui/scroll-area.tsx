@@ -1,19 +1,17 @@
-import { cx } from '@tszhong0411/utils'
-import React from 'react'
+import { cn } from '@tszhong0411/utils'
+import { forwardRef } from 'react'
 
 type ScrollAreaProps = React.ComponentPropsWithoutRef<'div'>
 
-const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
-  (props, ref) => {
-    const { children, className, ...rest } = props
+const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>((props, ref) => {
+  const { children, className, ...rest } = props
 
-    return (
-      <div ref={ref} className={cx('scroll-area', className)} {...rest}>
-        {children}
-      </div>
-    )
-  }
-)
+  return (
+    <div ref={ref} className={cn('scroll-area', className)} {...rest}>
+      {children}
+    </div>
+  )
+})
 
 ScrollArea.displayName = 'ScrollArea'
 

@@ -1,17 +1,15 @@
-import React from 'react'
+import { useMemo, useRef, useState } from 'react'
 
 type Position = {
   x: number
   y: number
 }
 
-export const useSelection = (
-  ref: React.MutableRefObject<HTMLElement | null>
-) => {
-  const [isSelecting, setIsSelecting] = React.useState(false)
-  const debounceTimer = React.useRef<number>()
+export const useSelection = (ref: React.MutableRefObject<HTMLElement | null>) => {
+  const [isSelecting, setIsSelecting] = useState(false)
+  const debounceTimer = useRef<number>()
 
-  const [position, setPosition] = React.useState<{
+  const [position, setPosition] = useState<{
     start: Position | null
     end: Position | null
   }>({
@@ -61,7 +59,7 @@ export const useSelection = (
     })
   }
 
-  const selectionStyle = React.useMemo(() => {
+  const selectionStyle = useMemo(() => {
     if (!position.start || !position.end) return
 
     return {

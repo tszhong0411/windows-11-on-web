@@ -40,21 +40,22 @@ const DecadeView = () => {
   const yearRow = getYearRow(decadeStartYear)
 
   if (typeof yearRow === 'number') {
-    range(yearRow).map((i) => {
+    for (const i of range(yearRow)) {
       const year = decadeStartYear - i - 1
       shouldPush(year) && years.unshift(dayjs(`${year}-1-1`))
-    })
+    }
   }
 
-  range(decadeStartYear, decadeEndYear + 1).map((year) => {
+  for (const year of range(decadeStartYear, decadeEndYear + 1)) {
     shouldPush(year) && years.push(dayjs(`${year}-1-1`))
-  })
+  }
 
   const yearsLength = years.length
-  range(16 - yearsLength).map((i) => {
-    const newYear = years[yearsLength - 1].year() + 1 + i
+
+  for (const i of range(16 - yearsLength)) {
+    const newYear = years[yearsLength - 1]!.year() + 1 + i
     shouldPush(newYear) && years.push(dayjs(`${newYear}-1-1`))
-  })
+  }
 
   return (
     <motion.div

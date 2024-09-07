@@ -1,4 +1,4 @@
-import type { DraggableSyntheticListeners } from '@dnd-kit/core'
+import type { DraggableAttributes, DraggableSyntheticListeners } from '@dnd-kit/core'
 import {
   closestCenter,
   DndContext,
@@ -16,7 +16,7 @@ import {
   useSortable
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import React from 'react'
+import { createContext, useMemo } from 'react'
 import { useLocalStorage } from 'react-use'
 
 import { useStartMenu } from '@/hooks'
@@ -24,13 +24,12 @@ import { useStartMenu } from '@/hooks'
 import App from './app'
 
 type Context = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  attributes: Record<string, any>
+  attributes: DraggableAttributes | Record<string, never>
   listeners: DraggableSyntheticListeners
   ref(node: HTMLElement | null): void
 }
 
-const SortableItemContext = React.createContext<Context>({
+const SortableItemContext = createContext<Context>({
   attributes: {},
   listeners: undefined,
   ref: () => null
@@ -51,7 +50,9 @@ const Apps = () => {
       name: 'Start',
       tooltip: 'Start',
       id: 'start',
-      onClick: () => setOpen(!open),
+      onClick: () => {
+        setOpen(!open)
+      },
       active: open,
       'data-id': 'start'
     },
@@ -81,7 +82,7 @@ const Apps = () => {
       sensors={sensors}
       collisionDetection={closestCenter}
       onDragEnd={({ active, over }) => {
-        if (over && active.id !== over?.id) {
+        if (over && active.id !== over.id) {
           const activeIndex = apps.findIndex(({ id }) => id === active.id)
           const overIndex = apps.findIndex(({ id }) => id === over.id)
 
@@ -146,7 +147,8 @@ const DraggableApp = (props: DraggableAppProps) => {
     transition,
     isDragging
   } = useSortable({ id })
-  const context = React.useMemo(
+
+  const context = useMemo(
     () => ({
       attributes,
       listeners,

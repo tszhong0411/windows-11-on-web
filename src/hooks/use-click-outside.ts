@@ -1,21 +1,18 @@
-import React from 'react'
+import { useEffect, useRef } from 'react'
 
 export const useClickOutside = <T extends HTMLElement>(
   fn: () => void,
   nodes?: Array<HTMLElement | null>
 ) => {
-  const ref = React.useRef<T | null>(null)
+  const ref = useRef<T | null>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const clickOutsideHandler = (event: MouseEvent) => {
-      const target = (event.target as HTMLElement) ?? {}
+      const target = event.target as HTMLElement
 
       if (Array.isArray(nodes)) {
-        const shouldIgnore =
-          !document.body.contains(target) && target.tagName !== 'HTML'
-        const shouldTrigger = nodes.every(
-          (node) => !!node && !event.composedPath().includes(node)
-        )
+        const shouldIgnore = !document.body.contains(target) && target.tagName !== 'HTML'
+        const shouldTrigger = nodes.every((node) => !!node && !event.composedPath().includes(node))
 
         shouldTrigger && !shouldIgnore && fn()
       } else if (ref.current && !ref.current.contains(target as Node)) {

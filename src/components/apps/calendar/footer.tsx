@@ -1,12 +1,12 @@
 'use client'
 
-import React from 'react'
+import { useState } from 'react'
 
 import { AddIcon, PlayFilledIcon, SubtractIcon } from '@/components/icons'
-import Button from '@/ui/button'
+import { Button } from '@/ui/button'
 
 const Footer = () => {
-  const [timer, setTimer] = React.useState(30)
+  const [timer, setTimer] = useState(30)
 
   const addTimeHandler = () => {
     setTimer((prev) => {
@@ -27,7 +27,7 @@ const Footer = () => {
       <div className='flex w-[130px] justify-between gap-3'>
         <Button
           onClick={subtractTimeHandler}
-          className='flex h-6 w-6 items-center justify-center'
+          className='flex size-6 items-center justify-center'
           disabled={timer === 5}
         >
           <SubtractIcon width={12} height={12} />
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
         <Button
           onClick={addTimeHandler}
-          className='flex h-6 w-6 items-center justify-center'
+          className='flex size-6 items-center justify-center'
           disabled={timer === 240}
         >
           <AddIcon width={12} height={12} />

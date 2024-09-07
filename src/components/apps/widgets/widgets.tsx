@@ -2,19 +2,18 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
-import React from 'react'
+import { useState } from 'react'
 
 import { useClickOutside, useWidgets } from '@/hooks'
-import Button from '@/ui/button'
+import { Button } from '@/ui/button'
 
 const Widgets = () => {
   const { open, setOpen } = useWidgets()
-  const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
+  const [ref, setRef] = useState<HTMLDivElement | null>(null)
 
-  useClickOutside(
-    () => setOpen(false),
-    [ref, document.querySelector('[data-id=widgets]')]
-  )
+  useClickOutside(() => {
+    setOpen(false)
+  }, [ref, document.querySelector('[data-id=widgets]')])
 
   return (
     <AnimatePresence>
@@ -47,17 +46,12 @@ const Widgets = () => {
                 quality={100}
               />
             </div>
-            <h2 className='mb-2 text-[28px] font-medium'>
-              Sign in to use your widgets
-            </h2>
+            <h2 className='mb-2 text-[28px] font-medium'>Sign in to use your widgets</h2>
             <p className='mb-6 text-sm'>
-              Get quick access to the latest headlines, weather updates, your To
-              Do list, and everything else that&apos;s important to you at a
-              glance.
+              Get quick access to the latest headlines, weather updates, your To Do list, and
+              everything else that&apos;s important to you at a glance.
             </p>
-            <Button className='h-8 w-[150px] text-center text-sm'>
-              Sign in
-            </Button>
+            <Button className='h-8 w-[150px] text-center text-sm'>Sign in</Button>
           </div>
         </motion.div>
       )}

@@ -32,13 +32,17 @@ const Toggles = () => {
         label={wifi ? 'Hong' : 'Wi-FI'}
         icon={<WifiIcon width={16} height={16} />}
         active={wifi}
-        onClick={() => setWifi(!wifi)}
+        onClick={() => {
+          setWifi(!wifi)
+        }}
       />
       <Toggle
         label={bluetooth ? 'Not connected' : 'Bluetooth'}
         icon={<BluetoothIcon width={16} height={16} />}
         active={bluetooth}
-        onClick={() => setBluetooth(!bluetooth)}
+        onClick={() => {
+          setBluetooth(!bluetooth)
+        }}
       />
       <Toggle
         label='Airplane mode'
@@ -62,13 +66,17 @@ const Toggles = () => {
           )
         }
         active={nightLight}
-        onClick={() => setNightLight(!nightLight)}
+        onClick={() => {
+          setNightLight(!nightLight)
+        }}
       />
       <Toggle
         label='Nearby sharing'
         icon={<ShareIcon width={16} height={16} />}
         active={nearbySharing}
-        onClick={() => setNearbySharing(!nearbySharing)}
+        onClick={() => {
+          setNearbySharing(!nearbySharing)
+        }}
       />
     </div>
   )

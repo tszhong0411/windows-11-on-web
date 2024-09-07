@@ -1,8 +1,8 @@
-import React from 'react'
+import { Fragment } from 'react'
 
 import { ChevronLeftIcon } from '@/components/icons'
 import { useSettings, useStartMenu } from '@/hooks'
-import Button from '@/ui/button'
+import { Button } from '@/ui/button'
 import { ScrollArea } from '@/ui/scroll-area'
 
 import App from './app'
@@ -14,7 +14,7 @@ const AllApps = () => {
   const sortedApps = new Map<string, typeof apps>()
 
   for (const app of apps) {
-    const firstLetter = app.name[0].toUpperCase()
+    const firstLetter = app.name[0]!.toUpperCase()
 
     if (!sortedApps.get(firstLetter)) {
       sortedApps.set(firstLetter, [])
@@ -30,7 +30,9 @@ const AllApps = () => {
         <div>
           <Button
             className='flex items-center justify-center gap-3 px-2 text-xs leading-[22px]'
-            onClick={() => setAllApps(false)}
+            onClick={() => {
+              setAllApps(false)
+            }}
           >
             <ChevronLeftIcon width={8} height={8} />
             Back
@@ -39,19 +41,15 @@ const AllApps = () => {
       </div>
       <ScrollArea className='h-[520px] px-[52px] pb-8'>
         {[...sortedApps.keys()].map((letter) => (
-          <React.Fragment key={letter}>
+          <Fragment key={letter}>
             <div
               key={letter}
               className='flex h-10 items-center rounded px-[19px] transition-colors duration-150 hover:bg-white/70'
             >
-              <div className='mr-auto flex w-2.5 items-center justify-center text-sm'>
-                {letter}
-              </div>
+              <div className='mr-auto flex w-2.5 items-center justify-center text-sm'>{letter}</div>
             </div>
-            {sortedApps
-              .get(letter)
-              ?.map((app) => <App key={app.id} {...app} />)}
-          </React.Fragment>
+            {sortedApps.get(letter)?.map((app) => <App key={app.id} {...app} />)}
+          </Fragment>
         ))}
       </ScrollArea>
     </div>

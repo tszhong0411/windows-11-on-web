@@ -16,11 +16,15 @@ type StartMenuActions = {
   reset: () => void
 }
 
-export const useStartMenu = create<StartMenuStates & StartMenuActions>()(
-  (set) => ({
-    ...initialStates,
-    setOpen: (open) => set({ open }),
-    setAllApps: (allApps) => set({ allApps }),
-    reset: () => set(initialStates)
-  })
-)
+export const useStartMenu = create<StartMenuStates & StartMenuActions>()((set) => ({
+  ...initialStates,
+  setOpen: (open) => {
+    set({ open })
+  },
+  setAllApps: (allApps) => {
+    set({ allApps })
+  },
+  reset: () => {
+    set(initialStates)
+  }
+}))

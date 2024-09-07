@@ -1,7 +1,7 @@
 'use client'
 
-import { cx } from '@tszhong0411/utils'
-import React from 'react'
+import { cn } from '@tszhong0411/utils'
+import { useRef, useState } from 'react'
 
 import {
   DropdownMenu,
@@ -17,9 +17,9 @@ import SystemTray from './system-tray'
 import Widgets from './widgets'
 
 const Taskbar = () => {
-  const ref = React.useRef<HTMLDivElement>(null)
-  const [open, setOpen] = React.useState(false)
-  const [left, setLeft] = React.useState<number | null>(null)
+  const ref = useRef<HTMLDivElement>(null)
+  const [open, setOpen] = useState(false)
+  const [left, setLeft] = useState<number | null>(null)
 
   /*
     If I use the context menu here, I can't control it.
@@ -28,10 +28,11 @@ const Taskbar = () => {
   */
   return (
     <>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions -- i don't know */}
       <div
-        className={cx(
-          'acrylic absolute bottom-0 left-0 right-0 z-[9000] flex h-12 min-w-[100vw] items-center justify-between pl-[3px]',
-          'before:absolute before:left-0 before:right-0 before:top-0 before:h-px before:w-full before:bg-[#bebebe] before:content-[""]'
+        className={cn(
+          'acrylic absolute inset-x-0 bottom-0 z-[9000] flex h-12 min-w-[100vw] items-center justify-between pl-[3px]',
+          'before:absolute before:inset-x-0 before:top-0 before:h-px before:w-full before:bg-[#bebebe] before:content-[""]'
         )}
         ref={ref}
         onContextMenu={(e) => {
@@ -55,7 +56,7 @@ const Taskbar = () => {
         }}
       >
         <DropdownMenuTrigger asChild>
-          {left && (
+          {left !== null && (
             <span
               className='fixed bottom-12'
               style={{

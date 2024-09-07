@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from '@/components/icons'
 import { useStartMenu } from '@/hooks'
-import Button from '@/ui/button'
+import { Button } from '@/ui/button'
 
 import PinnedApp, { type AppProps } from './pinned-app'
 
@@ -57,7 +57,9 @@ const Pinned = () => {
         <div>
           <Button
             className='flex items-center justify-center gap-3 px-2 text-xs leading-[22px]'
-            onClick={() => setAllApps(true)}
+            onClick={() => {
+              setAllApps(true)
+            }}
           >
             All apps <ChevronRightIcon width={8} height={8} />
           </Button>

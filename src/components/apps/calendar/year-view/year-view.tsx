@@ -22,10 +22,9 @@ const YearView = () => {
 
   isMaxYear && range(4).map((i) => months.push(dayjs(`${year - 1}-${i + 9}-1`)))
 
-  range(12).map((i) => months.push(dayjs(`${year}-${i + 1}-1`)))
+  for (const i of range(12)) months.push(dayjs(`${year}-${i + 1}-1`))
 
-  !isMaxYear &&
-    range(4).map((i) => months.push(dayjs(`${year + 1}-${i + 1}-1`)))
+  !isMaxYear && range(4).map((i) => months.push(dayjs(`${year + 1}-${i + 1}-1`)))
 
   return (
     <motion.div

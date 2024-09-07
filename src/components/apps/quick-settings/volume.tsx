@@ -1,23 +1,17 @@
 'use client'
 
-import React from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
-import {
-  MutedIcon,
-  Volume0Icon,
-  Volume1Icon,
-  Volume2Icon,
-  Volume3Icon
-} from '@/components/icons'
+import { MutedIcon } from '@/components/icons'
+import VolumeIcon from '@/components/volume-icon'
 import { useSettings } from '@/hooks'
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack } from '@/ui/slider'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/ui/tooltip'
-import { getVolumeLevel } from '@/utils'
 
 const Volume = () => {
   const { muted, setMuted, volume, setVolume } = useSettings()
-  const [volumeTooltipOpened, setVolumeTooltipOpened] = React.useState(false)
-  const openTimerRef = React.useRef(0)
+  const [volumeTooltipOpened, setVolumeTooltipOpened] = useState(false)
+  const openTimerRef = useRef(0)
 
   /*
     I do this manually because I want to show the tooltip
@@ -28,41 +22,23 @@ const Volume = () => {
 
     Copied from https://github.com/radix-ui/primitives/blob/main/packages/react/tooltip/src/Tooltip.tsx
   */
-  const delayedOpenHandler = React.useCallback(() => {
+  const delayedOpenHandler = useCallback(() => {
     window.clearTimeout(openTimerRef.current)
     openTimerRef.current = window.setTimeout(() => {
       setVolumeTooltipOpened(true)
     }, 1000)
   }, [setVolumeTooltipOpened])
 
-  React.useEffect(() => {
-    return () => window.clearTimeout(openTimerRef.current)
+  useEffect(() => {
+    return () => {
+      window.clearTimeout(openTimerRef.current)
+    }
   }, [])
 
   const playSound = () => {
     const sound = new Audio('/sounds/volume_adjust.mp3')
     sound.volume = volume / 100
     void sound.play()
-  }
-
-  const VolumeIcon = (props: React.SVGAttributes<SVGElement>) => {
-    switch (getVolumeLevel(volume)) {
-      case 0: {
-        return <Volume0Icon {...props} />
-      }
-      case 1: {
-        return <Volume1Icon {...props} />
-      }
-      case 2: {
-        return <Volume2Icon {...props} />
-      }
-      case 3: {
-        return <Volume3Icon {...props} />
-      }
-      default: {
-        return null
-      }
-    }
   }
 
   return (
@@ -73,15 +49,13 @@ const Volume = () => {
         <Tooltip delayDuration={1000}>
           <TooltipTrigger asChild>
             <button
-              className='flex h-10 w-10 shrink-0 cursor-default items-center justify-center rounded hover:bg-[--subtle-secondary]'
-              onClick={() => setMuted(!muted)}
+              className='flex size-10 shrink-0 cursor-default items-center justify-center rounded hover:bg-[--subtle-secondary]'
+              onClick={() => {
+                setMuted(!muted)
+              }}
               type='button'
             >
-              {muted ? (
-                <MutedIcon width={14} height={14} />
-              ) : (
-                <VolumeIcon width={14} height={14} />
-              )}
+              {muted ? <MutedIcon width={14} height={14} /> : <VolumeIcon width={14} height={14} />}
             </button>
           </TooltipTrigger>
           <TooltipContent>{muted ? 'Unmute' : 'Mute'}</TooltipContent>
@@ -95,7 +69,7 @@ const Volume = () => {
           onValueChange={(value) => {
             setVolumeTooltipOpened(true)
             if (muted) setMuted(false)
-            setVolume(value[0])
+            setVolume(value[0]!)
             if (value[0] === 0) setMuted(true)
           }}
           onValueCommit={() => {
@@ -118,7 +92,9 @@ const Volume = () => {
             </TooltipTrigger>
             <TooltipContent
               updatePositionStrategy='always'
-              onPointerDownOutside={(e) => e.preventDefault()}
+              onPointerDownOutside={(e) => {
+                e.preventDefault()
+              }}
               sideOffset={20}
             >
               {volume}

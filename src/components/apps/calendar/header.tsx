@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 
 import { ChevronDownIcon, ChevronUpIcon } from '@/components/icons'
 import { useCalendar, useSettings } from '@/hooks'
-import Button from '@/ui/button'
+import { Button } from '@/ui/button'
 
 const Header = () => {
   const { calendarExpanded, setCalendarExpanded } = useSettings()
@@ -21,8 +21,10 @@ const Header = () => {
         {dayjs().format('dddd, MMMM D')}
       </button>
       <Button
-        className='flex h-6 w-6 cursor-default items-center justify-center'
-        onClick={() => setCalendarExpanded(!calendarExpanded)}
+        className='flex size-6 cursor-default items-center justify-center'
+        onClick={() => {
+          setCalendarExpanded(!calendarExpanded)
+        }}
       >
         {calendarExpanded && <ChevronDownIcon width={8} height={8} />}
         {!calendarExpanded && <ChevronUpIcon width={8} height={8} />}

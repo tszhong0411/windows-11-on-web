@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 
 import { useSettings } from '@/hooks'
 import {
@@ -74,19 +73,16 @@ const View = () => {
         <ContextMenuSubContent className='min-w-[266px]'>
           <ContextMenuRadioGroup
             value={desktop.iconSize}
-            onValueChange={(value) =>
+            onValueChange={(value) => {
               setDesktop({
                 ...desktop,
-                iconSize: value as
-                  | 'large-icons'
-                  | 'medium-icons'
-                  | 'small-icons'
+                iconSize: value as 'large-icons' | 'medium-icons' | 'small-icons'
               })
-            }
+            }}
           >
             <ContextMenuRadioItem value='large-icons'>
-              <LargeIconsIcon width={14} height={14} className='mr-3' /> Large
-              icons <ContextMenuShortcut>Ctrl+Shift+2</ContextMenuShortcut>
+              <LargeIconsIcon width={14} height={14} className='mr-3' /> Large icons{' '}
+              <ContextMenuShortcut>Ctrl+Shift+2</ContextMenuShortcut>
             </ContextMenuRadioItem>
             <ContextMenuRadioItem value='medium-icons'>
               <MediumIconsIcon width={14} height={12} className='mr-3' />
@@ -207,6 +203,7 @@ const New = () => {
             Shortcut
           </ContextMenuItem>
           <ContextMenuItem>
+            {/* eslint-disable-next-line jsx-a11y/img-redundant-alt -- it's the name of icon */}
             <Image
               src='/images/icons/bitmap-image.png'
               className='mr-3'

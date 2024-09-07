@@ -1,4 +1,4 @@
-import { cx } from '@tszhong0411/utils'
+import { cn } from '@tszhong0411/utils'
 import dayjs, { type Dayjs } from 'dayjs'
 import isToday from 'dayjs/plugin/isToday'
 
@@ -17,8 +17,8 @@ const Day = (props: DayProps) => {
 
   return (
     <Tile
-      className={cx(
-        'relative h-[41px] w-[41px]',
+      className={cn(
+        'relative size-[41px]',
         !isInMonth &&
           'text-[--text-secondary] hover:text-[rgba(0,0,0,0.8956)] active:text-[rgba(0,0,0,0.4458)]',
         date.isToday() &&

@@ -1,8 +1,8 @@
 'use client'
 
-import { cx } from '@tszhong0411/utils'
+import { cn } from '@tszhong0411/utils'
 import { AnimatePresence, motion, type Variants } from 'framer-motion'
-import React from 'react'
+import { useState } from 'react'
 import { useKey } from 'react-use'
 
 import { useCalendar, useClickOutside, useSettings } from '@/hooks'
@@ -40,13 +40,14 @@ export const variants: Variants = {
 const Calendar = () => {
   const { open, setOpen, view } = useCalendar()
   const { calendarExpanded } = useSettings()
-  const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
+  const [ref, setRef] = useState<HTMLDivElement | null>(null)
 
-  useKey('Escape', () => setOpen(false))
-  useClickOutside(
-    () => setOpen(false),
-    [ref, document.querySelector('[data-id=calendar]')]
-  )
+  useKey('Escape', () => {
+    setOpen(false)
+  })
+  useClickOutside(() => {
+    setOpen(false)
+  }, [ref, document.querySelector('[data-id=calendar]')])
 
   return (
     <AnimatePresence>
@@ -64,14 +65,14 @@ const Calendar = () => {
           transition={{
             duration: 0.1
           }}
-          className={cx(
+          className={cn(
             'acrylic fixed bottom-[calc(12px+var(--taskbar-height))] right-3 z-[9000] w-[334px] select-none rounded-lg border border-shell shadow-flyout'
           )}
           ref={setRef}
         >
           <Header />
           <div
-            className={cx(
+            className={cn(
               'h-[353px] overflow-hidden transition-[max-height,margin-bottom] duration-[250ms] ease-[cubic-bezier(0.62,0,0.32,1)]',
               calendarExpanded ? 'mb-[50px] max-h-[353px]' : 'mb-12 max-h-0'
             )}

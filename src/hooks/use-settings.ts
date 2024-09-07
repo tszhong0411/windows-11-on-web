@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware'
 
 import { type App } from '@/types'
 
-export type SettingsStates = {
+type SettingsStates = {
   volume: number
   wifi: boolean
   bluetooth: boolean
@@ -113,19 +113,37 @@ export const useSettings = create<SettingsStates & SettingsActions>()(
   persist(
     (set) => ({
       ...initialStates,
-      setVolume: (volume) => set({ volume }),
-      setWifi: (wifi) => set({ wifi }),
-      setBluetooth: (bluetooth) => set({ bluetooth }),
-      setAirplaneMode: (airplaneMode) => set({ airplaneMode }),
+      setVolume: (volume) => {
+        set({ volume })
+      },
+      setWifi: (wifi) => {
+        set({ wifi })
+      },
+      setBluetooth: (bluetooth) => {
+        set({ bluetooth })
+      },
+      setAirplaneMode: (airplaneMode) => {
+        set({ airplaneMode })
+      },
       setNightLight: (nightLight) => {
         document.body.dataset.nightLight = String(nightLight)
         set({ nightLight })
       },
-      setNearbySharing: (nearbySharing) => set({ nearbySharing }),
-      setMuted: (muted) => set({ muted }),
-      setCalendarExpanded: (calendarExpanded) => set({ calendarExpanded }),
-      setDesktop: (desktop) => set({ desktop }),
-      setApps: (apps) => set({ apps })
+      setNearbySharing: (nearbySharing) => {
+        set({ nearbySharing })
+      },
+      setMuted: (muted) => {
+        set({ muted })
+      },
+      setCalendarExpanded: (calendarExpanded) => {
+        set({ calendarExpanded })
+      },
+      setDesktop: (desktop) => {
+        set({ desktop })
+      },
+      setApps: (apps) => {
+        set({ apps })
+      }
     }),
     {
       name: 'settings',

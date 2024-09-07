@@ -12,9 +12,9 @@ type QuickSettingsActions = {
   setOpen: (open: boolean) => void
 }
 
-export const useQuickSettings = create<
-  QuickSettingsStates & QuickSettingsActions
->()((set) => ({
+export const useQuickSettings = create<QuickSettingsStates & QuickSettingsActions>()((set) => ({
   ...initialStates,
-  setOpen: (open) => set({ open })
+  setOpen: (open) => {
+    set({ open })
+  }
 }))

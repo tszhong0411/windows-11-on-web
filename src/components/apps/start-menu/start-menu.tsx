@@ -1,7 +1,7 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import React from 'react'
+import { useState } from 'react'
 import { useKey } from 'react-use'
 
 import { useClickOutside, useStartMenu } from '@/hooks'
@@ -14,7 +14,7 @@ import Search from './search'
 
 const StartMenu = () => {
   const { open, setOpen, reset } = useStartMenu()
-  const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
+  const [ref, setRef] = useState<HTMLDivElement | null>(null)
   const { allApps } = useStartMenu()
 
   useKey('Escape', () => {

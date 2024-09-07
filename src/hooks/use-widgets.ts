@@ -7,5 +7,7 @@ type WidgetsStore = {
 
 export const useWidgets = create<WidgetsStore>()((set) => ({
   open: false,
-  setOpen: (open) => set({ open })
+  setOpen: (open) => {
+    set({ open })
+  }
 }))

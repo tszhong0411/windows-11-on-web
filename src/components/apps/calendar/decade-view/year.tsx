@@ -1,4 +1,4 @@
-import { cx } from '@tszhong0411/utils'
+import { cn } from '@tszhong0411/utils'
 import dayjs, { type Dayjs } from 'dayjs'
 
 import Tile from '../tile'
@@ -15,8 +15,8 @@ const Year = (props: MonthProps) => {
 
   return (
     <Tile
-      className={cx(
-        'h-16 w-16',
+      className={cn(
+        'size-16',
         !isInDecade &&
           'text-[--text-secondary] hover:text-[rgba(0,0,0,0.8956)] active:text-[rgba(0,0,0,0.4458)]',
         isCurrentYear &&

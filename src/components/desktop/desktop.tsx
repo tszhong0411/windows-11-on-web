@@ -1,12 +1,12 @@
 'use client'
 
-import { cx } from '@tszhong0411/utils'
-import React from 'react'
+import { cn } from '@tszhong0411/utils'
+import { useRef, useState } from 'react'
 
 // import { Rnd } from 'react-rnd'
 import { useSelection, useSettings } from '@/hooks'
 import { sizes } from '@/lib/constants'
-import StyledSelection from '@/ui/selection'
+import { StyledSelection } from '@/ui/selection'
 
 // import { ChromeCloseIcon, SquareIcon, SubtractIcon } from '../icons'
 import App from './app'
@@ -18,20 +18,20 @@ type WallpaperProps = {
 
 const Desktop = (props: WallpaperProps) => {
   const { children } = props
-  const ref = React.useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
   const { desktop } = useSettings()
-  const [focused, setFocused] = React.useState<number>()
+  const [focused, setFocused] = useState<number>()
 
   const { isSelecting, selectionStyle, selectionEvents } = useSelection(ref)
 
   return (
     <>
       <ContextMenu>
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/prefer-tag-over-role -- focus */}
         <div
           role='button'
           tabIndex={0}
-          className={cx(
+          className={cn(
             'grid h-[calc(100vh-var(--taskbar-height))] w-full cursor-default grid-flow-col focus:outline-none',
             isSelecting && 'overflow-hidden'
           )}
@@ -45,7 +45,9 @@ const Desktop = (props: WallpaperProps) => {
             rowGap: sizes.desktop[desktop.iconSize].rowGap
           }}
           ref={ref}
-          onClick={() => setFocused(-1)}
+          onClick={() => {
+            setFocused(-1)
+          }}
           {...selectionEvents}
         >
           {/* Apps / Shortcuts */}

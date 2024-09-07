@@ -1,4 +1,4 @@
-import { cx } from '@tszhong0411/utils'
+import { cn } from '@tszhong0411/utils'
 import dayjs from 'dayjs'
 
 import { CaretDownFilledIcon, CaretUpFilledIcon } from '@/components/icons'
@@ -56,7 +56,7 @@ const Navigation = () => {
   return (
     <div className='mb-3 mt-2.5 flex h-[34px] items-center justify-between px-2'>
       <button
-        className={cx(
+        className={cn(
           'flex h-[34px] w-[238px] cursor-default items-center px-2 text-sm font-semibold',
           view === 'decade' && 'text-[rgba(0,0,0,0.345)]',
           view !== 'decade' &&
@@ -71,7 +71,7 @@ const Navigation = () => {
       </button>
       <div className='flex gap-2'>
         <button
-          className={cx(
+          className={cn(
             'flex h-[34px] w-8 cursor-default items-center justify-center',
             !(isMinDecade || isMinYear || isMinMonth) &&
               'hover:bg-[--subtle-secondary] active:bg-[rgba(0,0,0,0.0241)]'
@@ -80,14 +80,10 @@ const Navigation = () => {
           disabled={isMinDecade || isMinYear || isMinMonth}
           type='button'
         >
-          <CaretUpFilledIcon
-            width={8}
-            height={8}
-            className='fill-[rgba(0,0,0,0.4458)]'
-          />
+          <CaretUpFilledIcon width={8} height={8} className='fill-[rgba(0,0,0,0.4458)]' />
         </button>
         <button
-          className={cx(
+          className={cn(
             'flex h-[34px] w-8 cursor-default items-center justify-center',
             !(isMaxDecade || isMaxYear || isMaxMonth) &&
               'hover:bg-[--subtle-secondary] active:bg-[rgba(0,0,0,0.0241)]'
@@ -96,11 +92,7 @@ const Navigation = () => {
           disabled={isMaxDecade || isMaxYear || isMaxMonth}
           type='button'
         >
-          <CaretDownFilledIcon
-            width={8}
-            height={8}
-            className='fill-[rgba(0,0,0,0.4458)]'
-          />
+          <CaretDownFilledIcon width={8} height={8} className='fill-[rgba(0,0,0,0.4458)]' />
         </button>
       </div>
     </div>

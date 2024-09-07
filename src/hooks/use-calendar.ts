@@ -22,21 +22,25 @@ type CalendarActions = {
   setDrill: (drill: 'up' | 'down') => void
 }
 
-export const useCalendar = create<CalendarStates & CalendarActions>()(
-  (set) => ({
-    ...initialStates,
-    setOpen: (open) => {
-      if (open) {
-        set({ view: 'month' })
-        set({ date: dayjs() })
-        set({ open })
-        return
-      }
-
+export const useCalendar = create<CalendarStates & CalendarActions>()((set) => ({
+  ...initialStates,
+  setOpen: (open) => {
+    if (open) {
+      set({ view: 'month' })
+      set({ date: dayjs() })
       set({ open })
-    },
-    setView: (view) => set({ view }),
-    setDate: (date) => set({ date }),
-    setDrill: (drill) => set({ drill })
-  })
-)
+      return
+    }
+
+    set({ open })
+  },
+  setView: (view) => {
+    set({ view })
+  },
+  setDate: (date) => {
+    set({ date })
+  },
+  setDrill: (drill) => {
+    set({ drill })
+  }
+}))

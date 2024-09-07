@@ -1,4 +1,4 @@
-# 🖥️ Windows 11 on Web (WIP)
+# 🖥️ Windows 11 Web (WIP)
 
 This project aims to provide a web-based version of Windows 11, allowing users to experience Windows 11 directly from their web browser.
 

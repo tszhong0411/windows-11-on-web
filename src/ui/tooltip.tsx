@@ -1,12 +1,12 @@
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
-import { cx } from '@tszhong0411/utils'
-import React from 'react'
+import { cn } from '@tszhong0411/utils'
+import { forwardRef } from 'react'
 
 const TooltipProvider = TooltipPrimitive.Provider
 const Tooltip = TooltipPrimitive.Root
 const TooltipTrigger = TooltipPrimitive.Trigger
 
-const TooltipContent = React.forwardRef<
+const TooltipContent = forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
 >((props, ref) => {
@@ -16,7 +16,7 @@ const TooltipContent = React.forwardRef<
     <TooltipPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}
-      className={cx(
+      className={cn(
         'relative rounded bg-[#f9f9f9] px-2.5 py-1.5 text-center text-xs shadow-[0_4px_8px_0_rgba(0,0,0,0.14)]',
         'before:absolute before:inset-0 before:-z-10 before:-m-px before:rounded-[inherit] before:bg-gradient',
         className

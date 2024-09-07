@@ -1,5 +1,5 @@
 import dayjs, { type Dayjs } from 'dayjs'
-import React from 'react'
+import { useState } from 'react'
 
 import { useCalendar } from '@/hooks'
 import { range } from '@/utils'
@@ -7,7 +7,7 @@ import { range } from '@/utils'
 import Day from './day'
 
 const Days = () => {
-  const [selected, setSelected] = React.useState<Dayjs | null>(null)
+  const [selected, setSelected] = useState<Dayjs | null>(null)
   const { date } = useCalendar()
 
   const day = dayjs(date)
@@ -28,8 +28,7 @@ const Days = () => {
   }
 
   // Current month
-  for (const i of range(daysInMonth))
-    days.push(dayjs(`${year}-${month}-${i + 1}`))
+  for (const i of range(daysInMonth)) days.push(dayjs(`${year}-${month}-${i + 1}`))
 
   // Next month (outside of current month, fixed weeks)
   for (const i of range(7 * 6 - days.length)) {
@@ -44,9 +43,9 @@ const Days = () => {
           date={d}
           isInMonth={d.year() === year && d.month() + 1 === month}
           selected={selected?.valueOf() === d.valueOf()}
-          onClick={() =>
+          onClick={() => {
             setSelected((prev) => (prev?.valueOf() === d.valueOf() ? null : d))
-          }
+          }}
         />
       ))}
     </div>

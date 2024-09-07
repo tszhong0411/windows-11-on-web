@@ -1,6 +1,4 @@
-export const ShowDesktopIconsIcon = (
-  props: React.SVGAttributes<SVGElement>
-) => {
+export const ShowDesktopIconsIcon = (props: React.SVGAttributes<SVGElement>) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

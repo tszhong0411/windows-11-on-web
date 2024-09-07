@@ -1,7 +1,7 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import React from 'react'
+import { useState } from 'react'
 import { useKey } from 'react-use'
 
 import { useClickOutside, useQuickSettings } from '@/hooks'
@@ -12,13 +12,14 @@ import Volume from './volume'
 
 const QuickSettings = () => {
   const { open, setOpen } = useQuickSettings()
-  const [ref, setRef] = React.useState<HTMLDivElement | null>(null)
+  const [ref, setRef] = useState<HTMLDivElement | null>(null)
 
-  useKey('Escape', () => setOpen(false))
-  useClickOutside(
-    () => setOpen(false),
-    [ref, document.querySelector('[data-id=quick-settings]')]
-  )
+  useKey('Escape', () => {
+    setOpen(false)
+  })
+  useClickOutside(() => {
+    setOpen(false)
+  }, [ref, document.querySelector('[data-id=quick-settings]')])
 
   return (
     <AnimatePresence>

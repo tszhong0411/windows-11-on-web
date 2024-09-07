@@ -1,7 +1,5 @@
 // Written by me since I cannot find the original icon
-export const NightLightActiveIcon = (
-  props: React.SVGAttributes<SVGElement>
-) => {
+export const NightLightActiveIcon = (props: React.SVGAttributes<SVGElement>) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
