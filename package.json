@@ -27,6 +27,11 @@
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
     "@dnd-kit/modifiers": "^7.0.0",
@@ -60,6 +65,7 @@
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "cspell": "^8.14.2",
+    "cz-git": "^1.9.4",
     "eslint": "^8.57.0",
     "husky": "^9.1.5",
     "knip": "^5.30.0",
